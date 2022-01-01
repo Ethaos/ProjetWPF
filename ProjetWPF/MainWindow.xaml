@@ -6,11 +6,25 @@
         xmlns:local="clr-namespace:ProjetWPF"
         mc:Ignorable="d"
         Title="Projet App Avancée" Height="480" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <ListBox x:Name="LbxPerson">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding }"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Id}" Width="30"/>
+                        <Label Grid.Column="1" Content="{Binding Name}" Width="70"/>
+                        <Label Grid.Column="2" Content="{Binding FirstName}" Width="70"/>
+                        <Label Grid.Column="3" Content="{Binding Tel}" Width="70"/>
+                        <Label Grid.Column="4" Content="{Binding PassWord}" Width="100"/>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
