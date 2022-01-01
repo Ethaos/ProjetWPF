@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetWPF
+namespace ProjetWPF.Metier
 {
-    class Calender
+    class Trialist : VTT
     {
-
-
-        public void ajouterBalade()
+        public Trialist()
         {
 
         }

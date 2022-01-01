@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetWPF
+namespace ProjetWPF.Metier
 {
-    class Downhill : VTT
+    class Cyclo : Category
     {
-        public Downhill()
+        public Cyclo()
         {
 
         }

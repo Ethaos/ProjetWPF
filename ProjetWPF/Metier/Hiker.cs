@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetWPF
+namespace ProjetWPF.Metier
 {
-    public abstract class VTT : Category
+    class Hiker : VTT
     {
-        public VTT()
+        public Hiker()
         {
 
         }
