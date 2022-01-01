@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Projet App Avancée" Height="480" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="747*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="Projet !&#xD;&#xA;" HorizontalAlignment="Left" Height="33" Margin="315,184,0,0" VerticalAlignment="Top" Width="64" Grid.Column="2"/>
+        <ListBox x:Name="LbxPerson">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding }"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

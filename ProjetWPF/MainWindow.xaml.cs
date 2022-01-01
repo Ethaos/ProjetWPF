@@ -23,11 +23,9 @@ namespace ProjetWPF
         public MainWindow()
         {
             InitializeComponent();
-        }
+            LbxPerson.ItemsSource = new List<Person>{
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            }
         }
     }
 }
