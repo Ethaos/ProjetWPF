@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetWPF
 {
-    class Person
+    public abstract class Person 
     {
         private int id;
         private string name;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetWPF
 {
-    class VTT : Category
+    public abstract class VTT : Category
     {
         public VTT()
         {

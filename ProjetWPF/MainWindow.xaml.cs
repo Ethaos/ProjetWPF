@@ -23,16 +23,16 @@ namespace ProjetWPF
         public MainWindow()
         {
             InitializeComponent();
-            LbxPerson.ItemsSource = new List<Person>
+            LbxPerson.ItemsSource = new List<Member>
             {
-                new Person {
+                new Member {
                     Id = 1,
                     Name = "Martens",
                     FirstName = "Rémi",
                     Tel = 0492821292,
                     PassWord = "condorcet"
                 },
-                new Person {
+                new Member {
                     Id = 2,
                     Name = "Volant",
                     FirstName = "Alexis",

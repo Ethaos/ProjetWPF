@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetWPF
 {
-    class Category
+    public abstract class Category
     {
         private int num;
 
