@@ -6,11 +6,11 @@ namespace ProjetWPF.Metier
 {
     class Member : Person
     {
-        private int balance;
+        private float balance;
         private List<Category> lcat = new List<Category>();
         private List<Bike> lbike = new List<Bike>();
 
-        public Member(int id, string nom, string prenom, int tel, string motdepasse, int balance, List<Category> lcat,List<Bike> lbike) : base (id, nom, prenom, tel, motdepasse)
+        public Member(int id, string nom, string prenom, int tel, string motdepasse, float balance, List<Category> lcat,List<Bike> lbike) : base (id, nom, prenom, tel, motdepasse)
         {
             this.balance = balance;
             this.lcat = lcat;
@@ -19,7 +19,7 @@ namespace ProjetWPF.Metier
 
         public Member(){ }
 
-        public int Balance
+        public float Balance
         {
             get { return balance; }
             set { balance = value; }

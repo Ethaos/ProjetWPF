@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Projet App Avancée" Height="480" Width="800" WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ListBox x:Name="LbxPerson">
+        <ListBox x:Name="LbxMember">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

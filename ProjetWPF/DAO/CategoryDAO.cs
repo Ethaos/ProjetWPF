@@ -25,7 +25,7 @@ namespace ProjetWPF.DAO
         public override Category Find(int id)
         {
             Category category = null;
-            
+            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -65,7 +65,7 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }
+            }*/
             return category;
         }
     }

@@ -1,4 +1,6 @@
-﻿using ProjetWPF.Metier;
+﻿using ProjetWPF.DAO;
+using ProjetWPF.Factory;
+using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,17 @@ namespace ProjetWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Member> memberDAO = adf.GetMemberDAO();
+            Member member = memberDAO.Find(1);
+
+            LbxMember.ItemsSource = new List<Member>
+            {
+                member
+            };
+
+            /*
             LbxPerson.ItemsSource = new List<Member>
             {
                 new Member {
@@ -40,7 +53,7 @@ namespace ProjetWPF
                     Tel = 0482828288,
                     PassWord = "condorcet"
                 }
-            };
+            };*/
         } 
     }
 }
