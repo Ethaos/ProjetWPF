@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.DAO;
 using ProjetWPF.Factory;
 using ProjetWPF.Metier;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +30,19 @@ namespace ProjetWPF
 
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
+            /*Member m = new Member();
+            memberDAO.Create(m);
+            Member member = memberDAO.Find(m.Id);*/
+
             Member member = memberDAO.Find(1);
 
             LbxMember.ItemsSource = new List<Member>
             {
                 member
             };
-           
+
+            
+
             /*
             LbxMember.ItemsSource = new List<Member>
             {
@@ -55,6 +62,29 @@ namespace ProjetWPF
                 }
             };
             */
-        } 
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            int id, tel;
+            float balance;
+            string idString = textboxId.Text;
+            string name = textboxName.Text;
+            string firstname = textboxFirstName.Text;
+            string telString = textboxTel.Text;
+            string password = textboxPassWord.Text;
+            string balanceString = textboxBalance.Text;
+
+            int.TryParse(idString, out id);
+            int.TryParse(telString, out tel);
+            float.TryParse(balanceString, out balance);
+
+            Member m = new Member(id, name, firstname, tel, password, balance);
+
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Member> memberDAO = adf.GetMemberDAO();
+            memberDAO.Create(m);
+
+        }
     }
 }

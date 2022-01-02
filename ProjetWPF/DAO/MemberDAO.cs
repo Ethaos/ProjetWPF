@@ -10,8 +10,25 @@ namespace ProjetWPF.DAO
     internal class MemberDAO : DAO<Member>
     {
         public MemberDAO() { }
-        public override bool Create(Member obj)
+        public override bool Create(Member m)
         {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT into dbo.Member " +
+                        "(idMember,name,firstName,tel,passWord,balance) " +
+                        "values('" + m.Id + "','" + m.Name + "','" + m.FirstName + "','" + m.Tel + "','" + m.PassWord + "','" + m.Balance + "')",
+                        connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
             return false;
         }
         public override bool Delete(Member obj)

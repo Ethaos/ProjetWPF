@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:ProjetWPF"
         mc:Ignorable="d"
         Title="Projet App Avancée" Height="480" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,191,350">
-        <Menu HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="36" Margin="12,-17,0,0">
+	<Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,191,350">
+		<!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="501*"/>
+        </Grid.ColumnDefinitions>
+        <Menu HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="36" Margin="12,-17,0,0" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="File"></MenuItem>
                 <MenuItem Header="Save">
@@ -17,28 +21,45 @@
                 <MenuItem Header="Exit"></MenuItem>
             </MenuItem>
 
-        </Menu>
-        <ListBox x:Name="LbxMember" Margin="280,0,0,46" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
+        </Menu>-->
+		<ListBox x:Name="LbxMember" Margin="20,-30,-10,36">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
 
-                        <Label Content="{Binding Id}" Width="30"/>
-                        <Label Grid.Column="1" Content="{Binding Name}" Width="70"/>
-                        <Label Grid.Column="2" Content="{Binding FirstName}" Width="70"/>
-                        <Label Grid.Column="3" Content="{Binding Tel}" Width="70"/>
-                        <Label Grid.Column="4" Content="{Binding PassWord}" Width="100"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </Grid>
+						<Label Content="{Binding Id}" Width="30"/>
+						<Label Grid.Column="1" Content="{Binding Name}" Width="70"/>
+						<Label Grid.Column="2" Content="{Binding FirstName}" Width="70"/>
+						<Label Grid.Column="3" Content="{Binding Tel}" Width="70"/>
+						<Label Grid.Column="4" Content="{Binding PassWord}" Width="100"/>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		
+		<Grid>
+            <TextBlock Height="20"  Margin="-126,60,476,-24" Name="textBlockId" Text="Id:" Width="60"/>
+            <TextBox Name="textboxId" Margin="-57,90,354,-57" />
+            <TextBlock Height="20"  Margin="-126,92,476,-56" Name="textBlockName" Text="Name:" Width="60"/>
+            <TextBox Name="textboxName" Margin="-57,60,354,-27" />
+            <TextBlock Height="20"  Margin="-126,124,476,-88" Name="textBlockFirstName" Text="Firstname:" Width="60"/>
+            <TextBox Name="textboxFirstName" Margin="-57,122,354,-89" />
+            <TextBlock Height="20"  Margin="-126,155,476,-119" Name="textBlockTel" Text="Tel:" Width="60"/>
+            <TextBox Name="textboxTel" Margin="-57,154,354,-120" />
+            <TextBlock Height="20"  Margin="-126,187,476,-151" Name="textBlockPassWord" Text="Password:" Width="60"/>
+            <TextBox Name="textboxPassWord" Margin="-57,185,354,-151" />
+            <TextBlock Height="20"  Margin="-126,217,476,-181" Name="textBlockBalance" Text="Balance:" Width="60"/>
+            <TextBox Name="textboxBalance" Margin="-57,216,354,-182" />
+			<Button Content="Submit" Height="23" Width="70" Name="Submit" Click="Submit_Click" Margin="-57,256,397,-223" />
+		</Grid>
+		
+	</Grid>
 
 </Window>
