@@ -35,9 +35,9 @@ namespace ProjetWPF
             {
                 member
             };
-
+           
             /*
-            LbxPerson.ItemsSource = new List<Member>
+            LbxMember.ItemsSource = new List<Member>
             {
                 new Member {
                     Id = 1,
@@ -53,7 +53,8 @@ namespace ProjetWPF
                     Tel = 0482828288,
                     PassWord = "condorcet"
                 }
-            };*/
+            };
+            */
         } 
     }
 }
