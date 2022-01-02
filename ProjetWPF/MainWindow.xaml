@@ -6,8 +6,19 @@
         xmlns:local="clr-namespace:ProjetWPF"
         mc:Ignorable="d"
         Title="Projet App Avancée" Height="480" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ListBox x:Name="LbxMember">
+    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,191,350">
+        <Menu HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="36" Margin="12,-17,0,0">
+            <MenuItem Header="File">
+                <MenuItem Header="File"></MenuItem>
+                <MenuItem Header="Save">
+                    <MenuItem Header="Save"></MenuItem>
+                    <MenuItem Header="Save All"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Exit"></MenuItem>
+            </MenuItem>
+
+        </Menu>
+        <ListBox x:Name="LbxMember" Margin="280,0,0,46" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="246">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -29,4 +40,5 @@
             </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
+
 </Window>
