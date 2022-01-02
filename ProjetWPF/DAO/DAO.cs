@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 
 namespace ProjetWPF.DAO
@@ -9,7 +10,7 @@ namespace ProjetWPF.DAO
         protected string connectionString = null;
         public DAO()
         {
-            //this.connectionString = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+            this.connectionString = ConfigurationManager.ConnectionStrings["ProjetWPF"].ConnectionString;
         }
         public abstract bool Create(T obj);
         public abstract bool Delete(T obj);
