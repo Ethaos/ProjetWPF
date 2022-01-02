@@ -54,11 +54,6 @@ namespace ProjetWPF
                     PassWord = "condorcet"
                 }
             };*/
-        }
-
-        private void LbxMember_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        } 
     }
 }

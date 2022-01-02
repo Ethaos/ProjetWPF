@@ -7,13 +7,11 @@
         mc:Ignorable="d"
         Title="Projet App Avancée" Height="480" Width="800" WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Image Source="https://www.gracq.org/sites/default/files/balade.jpg" Margin="-18,132,437,165" />
-        <ListBox x:Name="LbxMember" Margin="303,49,0,82" SelectionChanged="LbxMember_SelectionChanged" HorizontalAlignment="Left" Width="391">
+        <ListBox x:Name="LbxMember">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
@@ -26,7 +24,6 @@
                         <Label Grid.Column="2" Content="{Binding FirstName}" Width="70"/>
                         <Label Grid.Column="3" Content="{Binding Tel}" Width="70"/>
                         <Label Grid.Column="4" Content="{Binding PassWord}" Width="100"/>
-                        <Label Grid.Column="5" Content="{Binding Balance}" Width="30"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
