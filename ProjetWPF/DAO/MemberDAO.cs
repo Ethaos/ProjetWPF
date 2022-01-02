@@ -63,7 +63,7 @@ namespace ProjetWPF.DAO
         public override Member Find(int id)
         {
             Member member = null;
-            /*
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -103,7 +103,7 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }*/
+            }
             return member;
         }
     }

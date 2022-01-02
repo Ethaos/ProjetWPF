@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace ProjetWPF.DAO
@@ -24,7 +25,7 @@ namespace ProjetWPF.DAO
         public override Category Find(int id)
         {
             Category category = null;
-            /*
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -64,7 +65,7 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }*/
+            }
             return category;
         }
     }

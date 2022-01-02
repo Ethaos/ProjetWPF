@@ -40,7 +40,7 @@ namespace ProjetWPF
                     Tel = 0482828288,
                     PassWord = "condorcet"
                 }
-            };
-        }
+            }; testc
+        } 
     }
 }
