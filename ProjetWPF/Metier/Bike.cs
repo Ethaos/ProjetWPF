@@ -6,12 +6,12 @@ namespace ProjetWPF.Metier
 {
     class Bike
     {
-        private int weight;
+        private float weight;
         private string type;
-        private int length;
+        private float length;
         private Member bikeMember;
 
-        public Bike(int weight, string type, int length, Member bikeMember)
+        public Bike(float weight, string type, float length, Member bikeMember)
         {
             this.weight = weight;
             this.type = type;
@@ -21,7 +21,7 @@ namespace ProjetWPF.Metier
 
         public Bike(){ }
 
-        public int Weight
+        public float Weight
         {
             get { return weight; }
             set { weight = value; }
@@ -33,7 +33,7 @@ namespace ProjetWPF.Metier
             set { type = value; }
         }
 
-        public int Length
+        public float Length
         {
             get { return length; }
             set { length = value; }
