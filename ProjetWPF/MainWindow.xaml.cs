@@ -33,5 +33,10 @@ namespace ProjetWPF
         {
             Main.Content = new MemberPage();
         }
+
+        private void CategoryClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new CategoryPage();
+        }
     }
 }

@@ -13,6 +13,11 @@ namespace ProjetWPF.Factory
             return new MemberDAO();
         }
 
+        public override DAO<Category> GetCategoryDAO()
+        {
+            return new CategoryDAO();
+        }
+
         /*
         public override DAO<Category> GetCategoryDAO()
         {

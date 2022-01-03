@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -46,23 +47,13 @@ namespace ProjetWPF.DAO
                         {
                             category = new Category
                             {
-                                Num = reader.GetInt32("num");
-                            idResponsible = reader.GetInt32("idResponsible");
+                                Num = reader.GetInt32("num"),
+                                NameCategory = reader.GetString("nameCategory"),
+                                NameUnderCategory = reader.GetString("nameUnderCategory")
 
                             };
                         }
                     }
-                }
-                if (member != null)
-                {
-                    CategoryDAO categoryDAO = new CategoryDAO();
-                    List<Category> CategroyMember = categoryDAO.FindAll(member);
-                    foreach (Category cat in CategroyMember)
-                        member.Category.Add(cat);
-                    BikeDAO bikeDAO = new BikeDAO();
-                    List<Bike> BikeMember = bikeDAO.FindAll(member);
-                    foreach (Bike bike in BikeMember)
-                        member.Bike.Add(bike);
                 }
             }
             catch (SqlException)
