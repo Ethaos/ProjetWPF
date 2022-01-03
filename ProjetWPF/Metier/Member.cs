@@ -40,7 +40,7 @@ namespace ProjetWPF.Metier
         {
             get { return lbike; }
             set { lbike = value; }
-        }
+        }        
 
         public void calculbalance()
         {

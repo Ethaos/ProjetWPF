@@ -16,5 +16,7 @@ namespace ProjetWPF.DAO
         public abstract bool Delete(T obj);
         public abstract bool Update(T obj);
         public abstract T Find(int id);
+
+        public abstract List<T> FindAll();
     }
 }

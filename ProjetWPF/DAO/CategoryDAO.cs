@@ -22,6 +22,13 @@ namespace ProjetWPF.DAO
             return false;
         }
 
+        public override List<Category> FindAll()
+        {
+            List<Category> listCategory = null;
+
+            return listCategory;
+        }
+
         public override Category Find(int id)
         {
             Category category = null;
