@@ -50,6 +50,7 @@ namespace ProjetWPF
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             memberDAO.Create(m);
+            Refresh();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -62,9 +63,11 @@ namespace ProjetWPF
             DAO<Member> memberDAO = adf.GetMemberDAO();
             Member m = memberDAO.Find(id);
             memberDAO.Delete(m);
+            Refresh();
+
         }
 
-        private void Refresh_Click(object sender, RoutedEventArgs e)
+        private void Refresh()
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();

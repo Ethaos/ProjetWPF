@@ -52,6 +52,6 @@
             <TextBox Name="textboxDeleteId" Margin="408,254,-39,-222" />
             <Button Content="Delete" Height="23" Width="70" Name="Delete" Click="Delete_Click" Margin="469,255,-129,-222" />
         </Grid>
-        <Button Content="Refresh" Height="23" Width="70" Name="Refresh" Click="Refresh_Click" Margin="136,307,204,-274" />
+        
     </Grid>
 </Page>

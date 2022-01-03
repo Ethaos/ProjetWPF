@@ -32,27 +32,23 @@ namespace ProjetWPF.DAO
         public override Category Find(int id)
         {
             Category category = null;
-            /*
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Classes WHERE cls_id = @id", connection);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Category WHERE num = @id", connection);
                     cmd.Parameters.AddWithValue("id", id);
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            member = new Member
+                            category = new Category
                             {
-                                Name = reader.GetString("Nom de la colonne je pense"),
-                                FirstName = reader.GetString(""),
-                                Tel = reader.GetInt32(""),
-                                PassWord = reader.GetString(""),
-                                Balance = reader.GetInt32(""),
-                                Category = new List<Category>(),
-                                Bike = new List<Bike>()
+                                Num = reader.GetInt32("num");
+                            idResponsible = reader.GetInt32("idResponsible");
+
                             };
                         }
                     }
@@ -72,7 +68,7 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }*/
+            }
             return category;
         }
     }

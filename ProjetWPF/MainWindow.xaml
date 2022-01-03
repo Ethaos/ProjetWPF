@@ -13,6 +13,6 @@
                 <Button Content="" Margin="10,10,0,0"/> <- Un Exemple
             -->
         </StackPanel>
-        <Frame x:Name="Main" Margin="0,30,0,0" Grid.ColumnSpan="4"/>
+        <Frame x:Name="Main" Margin="0,30,0,0"/>
     </Grid>
 </Window>
