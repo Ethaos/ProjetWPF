@@ -89,7 +89,7 @@ namespace ProjetWPF.DAO
 
         public override List<Category> FindByMember(Member m)
         {
-            List<Category> listCategory = null;
+            List<Category> listCategory = new List<Category>();
 
             try
             {
@@ -98,10 +98,11 @@ namespace ProjetWPF.DAO
                     SqlCommand cmd = new SqlCommand("SELECT * from dbo.Category C join dbo.infoCatMember INFO " +
                         "on C.num = INFO.idCategory join dbo.Member M on INFO.idMember = M.idMember where M.idMember = @id", connection);
                     cmd.Parameters.AddWithValue("id", m.Id);
+
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
                             Category cat = new Category
                             {
