@@ -1,5 +1,9 @@
-﻿using System;
+﻿using ProjetWPF.DAO;
+using ProjetWPF.Factory;
+using ProjetWPF.Metier;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,14 +17,27 @@ using System.Windows.Shapes;
 
 namespace ProjetWPF
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
-    public partial class Page1 : Page
+    
+    public partial class ResponsiblePage : Page
     {
-        public Page1()
+        public ResponsiblePage()
         {
             InitializeComponent();
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Responsible> responsibleDAO = adf.GetResponsibleDAO();
+            calendar.SelectedDate = DateTime.Now.AddDays(1);
+        }
+
+        private void AddDate(object sender, RoutedEventArgs e)
+        {
+            DateTime date = (DateTime)calendar.SelectedDate;
+
+
+
+            Trace.WriteLine(date);
+            
+             
+
         }
     }
 }

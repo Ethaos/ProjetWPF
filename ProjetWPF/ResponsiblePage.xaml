@@ -8,7 +8,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ResponsiblePage">
 
-    <Grid>
-        <Calendar />
-    </Grid>
+
+    <StackPanel Margin="10">
+        <Calendar Name="calendar" SelectedDate="" SelectionMode="SingleDate" />
+        <Label>Selected date:</Label>
+        <TextBox Text="{Binding ElementName=calendar, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Name="textboxDate"/>
+        <Button Content="Submit" Click="AddDate"/>
+    </StackPanel>
+   
+
 </Page>
