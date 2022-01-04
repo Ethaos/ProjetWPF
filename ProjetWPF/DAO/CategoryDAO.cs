@@ -122,5 +122,6 @@ namespace ProjetWPF.DAO
             return listCategory;
         }
 
+       
     }
 }
