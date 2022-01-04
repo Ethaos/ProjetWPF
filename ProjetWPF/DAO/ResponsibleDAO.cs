@@ -30,7 +30,7 @@ namespace ProjetWPF.DAO
 
         public override Responsible Find(int id)
         {
-            /*
+            
             Responsible responsible = null;
 
             try
@@ -63,7 +63,7 @@ namespace ProjetWPF.DAO
             {
                 throw new Exception("Une erreur sql s'est produite!");
             }
-            return Responsible;
+            return responsible;
         }
     }
 }
