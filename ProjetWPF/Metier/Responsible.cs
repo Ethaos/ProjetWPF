@@ -8,7 +8,7 @@ namespace ProjetWPF.Metier
     {
         private int idCategory;
 
-        public Responsible(int id, string name, string firstname, int tel, string password, string login, int idCategory) : base(id, name, firstname, tel, password, login)
+        public Responsible(int id, string name, string firstname, int tel, string login, string password, int idCategory) : base(id, name, firstname, tel, login,  password)
         {
             this.idCategory = idCategory;
         }
