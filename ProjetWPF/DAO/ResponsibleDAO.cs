@@ -66,6 +66,11 @@ namespace ProjetWPF.DAO
             return responsible;
         }
 
+        public override bool Add(int a, int b)
+        {
+            return false;
+        }
+
         public override List<Responsible> FindBy(int id)
         {
             return null;

@@ -122,5 +122,9 @@ namespace ProjetWPF.DAO
             return listCategory;
         }
 
+        public override bool Add(int a, int b)
+        {
+            return false;
+        }
     }
 }

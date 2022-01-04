@@ -138,6 +138,28 @@ namespace ProjetWPF.DAO
             return listMember;
         }
 
+        public override bool Add(int idMember, int idCategory)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT into dbo.infoCatMember " +
+                        "(idMember,idCategory) " +
+                        "values('" + idMember + "' , '" + idCategory + "' )",
+                        connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return false;
+        }
+
         public override List<Member> FindBy(int id)
         {
             return null;
