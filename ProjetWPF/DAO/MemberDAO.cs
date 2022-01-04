@@ -103,7 +103,7 @@ namespace ProjetWPF.DAO
 
         public override List<Member> FindAll()
         {
-            List<Member> member = new List<Member>();
+            List<Member> listMember = new List<Member>();
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
@@ -123,7 +123,7 @@ namespace ProjetWPF.DAO
                                 PassWord = reader.GetString("passWord"),
                                 Balance = reader.GetFloat("balance")
                             };
-                            member.Add(mem);
+                            listMember.Add(mem);
                         }
                     }
                 }
@@ -132,7 +132,7 @@ namespace ProjetWPF.DAO
             {
                 throw new Exception("Une erreur sql s'est produite!");
             }
-            return member;
+            return listMember;
         }
     }
 }

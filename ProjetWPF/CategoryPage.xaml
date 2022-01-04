@@ -9,7 +9,7 @@
       Title="CategoryPage">
 
     <Grid>
-        <ListBox x:Name="LbxCategoryAll" Margin="66,77,400,268">
+        <ListBox x:Name="LbxCategoryAll" Margin="35,61,409,225">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -26,10 +26,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid>
-            <TextBox Height="20" Name="textboxCategoryUnique" Margin="66,225,602,205" />
-            <Button Content="Search" Height="20" Width="70" Name="Search" Click="CategoryUniqueClick" Margin="218,225,512,205" />
-            <ListBox x:Name="LbxCategoryUnique" Margin="66,268,400,136">
+        <Grid Margin="415,61,10,225">
+            <ListBox x:Name="LbxCategoryUnique" Margin="35,82,43,3" RenderTransformOrigin="0.5,0.5">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -47,5 +45,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="539,92,0,0" VerticalAlignment="Top" Click="CategoryUniqueClick" Width="48"/>
+        <TextBox HorizontalAlignment="Left" Margin="450,92,0,0" VerticalAlignment="Top" Width="75" Name="textboxCategoryUnique" Height="20"/>
     </Grid>
 </Page>

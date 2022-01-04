@@ -16,6 +16,8 @@ namespace ProjetWPF.Factory
         public abstract DAO<Member> GetMemberDAO();
 
         public abstract DAO<Category> GetCategoryDAO();
+        public abstract DAO<Responsible> GetResponsibleDAO();
+
         /*
         public abstract DAO<Professeur> GetProfesseurDAO();
         public abstract DAO<Eleve> GetEleveDAO();

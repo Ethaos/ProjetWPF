@@ -1,48 +1,48 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
 namespace ProjetWPF.DAO
 {
-    internal class CategoryDAO : DAO<Category>
+    internal class ResponsibleDAO : DAO<Responsible>
     {
-        public CategoryDAO() { }
-        public override bool Create(Category obj)
+        public ResponsibleDAO() { }
+        public override bool Create(Responsible obj)
         {
             return false;
         }
-        public override bool Delete(Category obj)
+        public override bool Delete(Responsible obj)
         {
             return false;
         }
-        public override bool Update(Category obj)
+        public override bool Update(Responsible obj)
         {
             return false;
         }
 
-        public override List<Category> FindAll()
+        public override List<Responsible> FindAll()
         {
-            List<Category> listCategory = new List<Category>();
+            /*
+            List<Responsible> listResponsible = new List<Responsible>();
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Category", connection);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Responsible", connection);
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Category cat = new Category
+                            Responsible cat = new Responsible
                             {
                                 Num = reader.GetInt32("num"),
-                                NameCategory = reader.GetString("nameCategory"),
-                                NameUnderCategory = reader.GetString("nameUnderCategory")
+                                NameResponsible = reader.GetString("nameResponsible"),
+                                NameUnderResponsible = reader.GetString("nameUnderResponsible")
                             };
-                            listCategory.Add(cat);
+                            listResponsible.Add(cat);
                         }
                     }
                 }
@@ -51,29 +51,29 @@ namespace ProjetWPF.DAO
             {
                 throw new Exception("Une erreur sql s'est produite!");
             }
-            return listCategory;
+            return listResponsible;*/
         }
 
-        public override Category Find(int id)
+        public override Responsible Find(int id)
         {
-            Category category = null;
-            
+            Responsible responsible = null;
+
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Category WHERE num = @id", connection);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Responsible WHERE num = @id", connection);
                     cmd.Parameters.AddWithValue("id", id);
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            category = new Category
+                            responsible = new Responsible
                             {
                                 Num = reader.GetInt32("num"),
-                                NameCategory = reader.GetString("nameCategory"),
-                                NameUnderCategory = reader.GetString("nameUnderCategory")
+                                NameResponsible = reader.GetString("nameResponsible"),
+                                NameUnderResponsible = reader.GetString("nameUnderResponsible")
 
                             };
                         }
@@ -84,7 +84,7 @@ namespace ProjetWPF.DAO
             {
                 throw new Exception("Une erreur sql s'est produite!");
             }
-            return category;
+            return Responsible;
         }
     }
 }

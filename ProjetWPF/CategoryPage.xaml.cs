@@ -29,7 +29,7 @@ namespace ProjetWPF
             List<Category> listCategory = categoryDAO.FindAll();
             LbxCategoryAll.ItemsSource = listCategory;
         }
-
+        
         private void CategoryUniqueClick(object sender, RoutedEventArgs e)
         {
             int id;

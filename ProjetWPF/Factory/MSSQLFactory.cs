@@ -18,6 +18,11 @@ namespace ProjetWPF.Factory
             return new CategoryDAO();
         }
 
+        public override DAO<Responsible> GetResponsibleDAO()
+        {
+            return new ResponsibleDAO();
+        }
+
         /*
         public override DAO<Category> GetCategoryDAO()
         {

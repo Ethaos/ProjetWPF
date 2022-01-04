@@ -4,27 +4,19 @@ using System.Text;
 
 namespace ProjetWPF.Metier
 {
-    class Responsible
+    class Responsible : Person
     {
-        private Category catResp;
-        private Person personResp;
+        private int idCategory;
 
-        public Responsible(Category catResp, Person personResp)
+        public Responsible(int id, string name, string firstname, int tel, string password, string login, int idCategory) : base(id, name, firstname, tel, password, login)
         {
-            this.catResp = catResp;
-            this.personResp = personResp;
+            this.idCategory = idCategory;
         }
 
-        public Category CatResp
+        public int Category
         {
-            get { return catResp; } 
-            set { catResp = value; }
-        }
-
-        public Person PersonResp
-        {
-            get { return personResp; }
-            set { personResp = value; }
+            get { return idCategory; }
+            set { idCategory = value; }
         }
     }
 }

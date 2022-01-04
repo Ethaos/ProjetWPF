@@ -19,6 +19,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <Label Content="{Binding Id}" Width="30"/>
@@ -26,7 +27,7 @@
                         <Label Grid.Column="2" Content="{Binding FirstName}" Width="70"/>
                         <Label Grid.Column="3" Content="{Binding Tel}" Width="70"/>
                         <Label Grid.Column="4" Content="{Binding PassWord}" Width="100"/>
-                        <Label Grid.Column="4" Content="{Binding Balance}" Width="100"/>
+                        <Label Grid.Column="5" Content="{Binding Balance}" Width="50"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
