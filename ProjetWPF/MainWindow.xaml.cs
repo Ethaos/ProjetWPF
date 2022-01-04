@@ -31,17 +31,17 @@ namespace ProjetWPF
 
         private void MemberClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new MemberPage();
+            //Main.Content = new MemberPage();
         }
 
         private void CategoryClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new CategoryPage();
+            //Main.Content = new CategoryPage();
         }
 
         private void ResponsibleClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new ResponsiblePage();
+            //Main.Content = new ResponsiblePage();
         }
     }
 }
