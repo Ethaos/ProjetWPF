@@ -8,13 +8,29 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ResponsiblePage">
 
+    <Grid>
 
-    <StackPanel Margin="10">
-        <Calendar Name="calendar" SelectedDate="" SelectionMode="SingleDate" />
-        <Label Width="217">Selected date:</Label>
-        <TextBox Text="{Binding ElementName=calendar, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Name="textboxDate" Width="221"/>
-        <Button Content="Create" Click="AddDate" Width="220"/>
-    </StackPanel>
-   
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+
+        <Calendar x:Name="calendar" SelectedDate="" SelectionMode="SingleDate" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="37,132,77,129"/>
+        <Label Content="Selected date:" Margin="47,0,12,120" Grid.Row="2"/>
+        <TextBox Text="{Binding SelectedDate, ElementName=calendar, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  x:Name="textboxDate" Margin="139,4,90,120" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Content="Create" Click="AddDate" Margin="0,1,42,110" Grid.Column="4" Grid.Row="2" />
+
+
+    </Grid>
 
 </Page>
