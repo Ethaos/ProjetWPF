@@ -9,10 +9,23 @@
       Title="MemberPage">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="224*"/>
-        </Grid.RowDefinitions>
-        <Label Margin="298,181,312,224" Grid.Row="1" FontSize="24">PAGE MEMBERS</Label>
+        <Label Margin="280,25,330,380" FontSize="24">PAGE MEMBERS</Label>
+        <ListBox x:Name="LbxCatMember" Margin="44,143,400,143">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Num}" Width="30"/>
+                        <Label Grid.Column="1" Content="{Binding NameCategory}" Width="70"/>
+                        <Label Grid.Column="2" Content="{Binding NameUnderCategory}" Width="70"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

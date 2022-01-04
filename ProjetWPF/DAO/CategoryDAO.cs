@@ -86,5 +86,40 @@ namespace ProjetWPF.DAO
             }
             return category;
         }
+
+        public override List<Category> FindByMember(Member m)
+        {
+            List<Category> listCategory = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Category C join dbo.infoCatMember INFO " +
+                        "on C.num = INFO.idCategory join dbo.Member M on INFO.idMember = M.idMember where M.idMember = @id", connection);
+                    cmd.Parameters.AddWithValue("id", m.Id);
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Category cat = new Category
+                            {
+                                Num = reader.GetInt32("num"),
+                                NameCategory = reader.GetString("nameCategory"),
+                                NameUnderCategory = reader.GetString("nameUnderCategory")
+                            };
+                            listCategory.Add(cat);
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return listCategory;
+        }
+
     }
 }
