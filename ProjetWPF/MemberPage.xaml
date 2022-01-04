@@ -9,8 +9,25 @@
       Title="MemberPage">
 
     <Grid>
-        <Label Margin="280,25,330,380" FontSize="24">PAGE MEMBERS</Label>
-        <ListBox x:Name="LbxCatMember" Margin="44,143,400,143">
+        <ListBox x:Name="LbxCatMember" Margin="56,100,586,180" Width="150" Height="170" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Num}" Width="30"/>
+                        <Label Grid.Column="2" Content="{Binding NameUnderCategory}" Width="70"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Member Page" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Height="45" Width="170" FontSize="24"/>
+        <Label Content="Your categories" HorizontalAlignment="Left" Margin="44,55,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
+
+        <ListBox x:Name="LbxDisplayCategories" Margin="478,100,172,180" Width="150" Height="170">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -27,5 +44,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Label Content="Add category" HorizontalAlignment="Left" Margin="473,55,0,0" VerticalAlignment="Top" Height="45" Width="174" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Margin="492,283,0,0" VerticalAlignment="Top" Width="53" Name="textboxAddCategory" Height="25"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="563,283,0,0" VerticalAlignment="Top" Height="25" Width="65" Click="AddCatClick"/>
+
     </Grid>
 </Page>

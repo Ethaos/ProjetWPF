@@ -64,20 +64,24 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
+        public override Ride Find(int id)
+        {
+            return null;
+        }
 
         public override List<Ride> FindAll()
         {
             return null;
         }
 
-        public override Ride Find(int id)
+        public override bool Add(int a, int b)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public override List<Ride> FindBy(int id)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
          

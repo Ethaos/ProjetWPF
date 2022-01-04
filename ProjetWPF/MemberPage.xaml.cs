@@ -26,67 +26,42 @@ namespace ProjetWPF
             InitializeComponent();
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-            Member m = memberDAO.Find(1);
+            Member m = memberDAO.Find(2);
 
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
             List<Category> listCategory = categoryDAO.FindBy(m.Id);
 
-            LbxCatMember.ItemsSource = listCategory; 
+            LbxCatMember.ItemsSource = listCategory;
 
-
-
-            /*AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
-            DAO<Member> memberDAO = adf.GetMemberDAO();
-            List<Member> listMember = memberDAO.FindAll();
-            LbxMember.ItemsSource = listMember;*/
-        }
-        /*
-        private void Submit_Click(object sender, RoutedEventArgs e)
-        {
-            int id, tel;
-            float balance;
-            string idString = textboxId.Text;
-            string name = textboxName.Text;
-            string firstname = textboxFirstName.Text;
-            string telString = textboxTel.Text;
-            string login = textboxLogin.Text;
-            string password = textboxPassWord.Text;
-            string balanceString = textboxBalance.Text;
-
-            int.TryParse(idString, out id);
-            int.TryParse(telString, out tel);
-            float.TryParse(balanceString, out balance);
-
-            Member m = new Member(id, name, firstname, tel, login,password, balance);
-
-            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
-            DAO<Member> memberDAO = adf.GetMemberDAO();
-            memberDAO.Create(m);
-            Refresh();
-        }
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            int id;
-            string idString = textboxDeleteId.Text;
-            int.TryParse(idString, out id);
-
-            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
-            DAO<Member> memberDAO = adf.GetMemberDAO();
-            Member m = memberDAO.Find(id);
-            memberDAO.Delete(m);
-            Refresh();
-
+            List<Category> listCat = categoryDAO.FindAll();
+            LbxDisplayCategories.ItemsSource = listCat;
         }
 
         private void Refresh()
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-            List<Member> listMember = memberDAO.FindAll();
-            LbxMember.ItemsSource = listMember;
+            Member m = memberDAO.Find(2);
+            DAO<Category> categoryDAO = adf.GetCategoryDAO();
+            List<Category> listCategory = categoryDAO.FindBy(m.Id);
+            LbxCatMember.ItemsSource = listCategory;
         }
 
-        */
+        private void AddCatClick(object sender, RoutedEventArgs e)
+        {
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Member> memberDAO = adf.GetMemberDAO();
+            Member m = memberDAO.Find(2);
+
+            int idCategory;
+            string idString = textboxAddCategory.Text;
+
+            int.TryParse(idString, out idCategory);
+
+            memberDAO.Add(m.Id, idCategory);
+
+            Refresh();
+        }
+        
     }
 }
