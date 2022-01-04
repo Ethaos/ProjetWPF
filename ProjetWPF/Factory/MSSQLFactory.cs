@@ -23,6 +23,11 @@ namespace ProjetWPF.Factory
             return new ResponsibleDAO();
         }
 
+        public override DAO<Ride> GetRideDAO()
+        {
+            return new RideDAO();
+        }
+
         /*
         public override DAO<Category> GetCategoryDAO()
         {

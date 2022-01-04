@@ -11,9 +11,9 @@
 
     <StackPanel Margin="10">
         <Calendar Name="calendar" SelectedDate="" SelectionMode="SingleDate" />
-        <Label>Selected date:</Label>
-        <TextBox Text="{Binding ElementName=calendar, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Name="textboxDate"/>
-        <Button Content="Submit" Click="AddDate"/>
+        <Label Width="217">Selected date:</Label>
+        <TextBox Text="{Binding ElementName=calendar, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  Name="textboxDate" Width="221"/>
+        <Button Content="Create" Click="AddDate" Width="220"/>
     </StackPanel>
    
 

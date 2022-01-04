@@ -87,7 +87,7 @@ namespace ProjetWPF.DAO
             return category;
         }
 
-        public override List<Category> FindByMember(Member m)
+        public override List<Category> FindBy(int id)
         {
             List<Category> listCategory = new List<Category>();
 
@@ -97,7 +97,7 @@ namespace ProjetWPF.DAO
                 {
                     SqlCommand cmd = new SqlCommand("SELECT * from dbo.Category C join dbo.infoCatMember INFO " +
                         "on C.num = INFO.idCategory join dbo.Member M on INFO.idMember = M.idMember where M.idMember = @id", connection);
-                    cmd.Parameters.AddWithValue("id", m.Id);
+                    cmd.Parameters.AddWithValue("id", id);
 
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())

@@ -26,10 +26,10 @@ namespace ProjetWPF
             InitializeComponent();
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-            Member m = memberDAO.Find(2);
+            Member m = memberDAO.Find(1);
 
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
-            List<Category> listCategory = categoryDAO.FindByMember(m);
+            List<Category> listCategory = categoryDAO.FindBy(m.Id);
 
             LbxCatMember.ItemsSource = listCategory; 
 
