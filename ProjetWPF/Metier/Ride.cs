@@ -9,17 +9,18 @@ namespace ProjetWPF.Metier
         private int num;
         private string placeDeparture;
         private DateTime dateDeparture;
-        private double flatFee;
+        private float packageFee;
+        private int idCategory;
 
-        public Ride(int num, string placeDeparture, DateTime dateDeparture, double flatFee)
+        public Ride() { }
+        public Ride(int num, string placeDeparture, DateTime dateDeparture, float packageFee, int idCategory)
         {
             this.num = num;
             this.placeDeparture = placeDeparture;
             this.dateDeparture = dateDeparture;
-            this.flatFee = flatFee;
+            this.packageFee = packageFee;
+            this.idCategory = idCategory;
         }
-
-        public Ride(){ }
 
         public int Num
         {
@@ -39,10 +40,16 @@ namespace ProjetWPF.Metier
             set { dateDeparture = value; }
         }
 
-        public double FlatFee
+        public float PackageFee
         {
-            get { return flatFee; } 
-            set { flatFee = value; }
+            get { return packageFee; } 
+            set { packageFee = value; }
+        }
+
+        public int IdCategory
+        {
+            get { return idCategory; }
+            set { idCategory = value; }
         }
     }
 }
