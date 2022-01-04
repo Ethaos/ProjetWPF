@@ -38,5 +38,10 @@ namespace ProjetWPF
         {
             Main.Content = new CategoryPage();
         }
+
+        private void ResponsibleClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ResponsiblePage();
+        }
     }
 }

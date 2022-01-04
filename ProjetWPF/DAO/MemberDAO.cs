@@ -90,6 +90,7 @@ namespace ProjetWPF.DAO
                                 Balance = reader.GetFloat("balance"),
                                 Login = reader.GetString("login"),
                                 Category = new List<Category>()
+
                             };
                         }
                     }

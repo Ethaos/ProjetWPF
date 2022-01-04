@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -24,46 +25,19 @@ namespace ProjetWPF.DAO
 
         public override List<Responsible> FindAll()
         {
-            /*
-            List<Responsible> listResponsible = new List<Responsible>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Responsible", connection);
-                    connection.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Responsible cat = new Responsible
-                            {
-                                Num = reader.GetInt32("num"),
-                                NameResponsible = reader.GetString("nameResponsible"),
-                                NameUnderResponsible = reader.GetString("nameUnderResponsible")
-                            };
-                            listResponsible.Add(cat);
-                        }
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                throw new Exception("Une erreur sql s'est produite!");
-            }*/
             return null;
         }
 
         public override Responsible Find(int id)
         {
-            /*
+            
             Responsible responsible = null;
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Responsible WHERE num = @id", connection);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Responsible WHERE idResponsable = @id", connection);
                     cmd.Parameters.AddWithValue("id", id);
                     connection.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -72,9 +46,13 @@ namespace ProjetWPF.DAO
                         {
                             responsible = new Responsible
                             {
-                                Num = reader.GetInt32("num"),
-                                NameResponsible = reader.GetString("nameResponsible"),
-                                NameUnderResponsible = reader.GetString("nameUnderResponsible")
+                                Id = reader.GetInt32("idResponsible"), 
+                                Name = reader.GetString("name"),
+                                FirstName = reader.GetString("firstName"),
+                                Tel = reader.GetInt32("tel"),
+                                PassWord = reader.GetString("passWord"),
+                                Login = reader.GetString("login"),
+                                Category = reader.GetInt32("idCategory")
 
                             };
                         }
@@ -84,8 +62,8 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }*/
-            return null;
+            }
+            return responsible;
         }
 
         public override List<Responsible> FindByMember(Member m)

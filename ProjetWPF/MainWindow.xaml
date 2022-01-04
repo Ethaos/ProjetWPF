@@ -9,7 +9,8 @@
     <Grid>
         <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top">
             <Button Content="Members" Margin="10,10,0,0" Click="MemberClick"/>
-            <Button Content="Categories" Margin="10,10,0,0" Click="CategoryClick"/>
+            <Button Content="Category" Margin="10,10,0,0" Click="CategoryClick"/>
+            <Button Content="Responsible" Margin="10,10,0,0" Click="ResponsibleClick"/>
             <!--Ajouter des boutons ici si on veut aller ailleurs
                 <Button Content="" Margin="10,10,0,0"/> <- Un Exemple
             -->

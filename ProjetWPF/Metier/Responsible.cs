@@ -12,7 +12,6 @@ namespace ProjetWPF.Metier
         {
 
         }
-
         public Responsible(int id, string name, string firstname, int tel, string login, string password, int idCategory) : base(id, name, firstname, tel, login,  password)
         {
             this.idCategory = idCategory;
