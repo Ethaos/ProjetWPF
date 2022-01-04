@@ -62,6 +62,5 @@ namespace ProjetWPF
 
             Refresh();
         }
-        
     }
 }
