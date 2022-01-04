@@ -88,7 +88,9 @@ namespace ProjetWPF.DAO
                                 Tel = reader.GetInt32("tel"),
                                 PassWord = reader.GetString("passWord"),
                                 Balance = reader.GetFloat("balance"),
+                                Login = reader.GetString("login"),
                                 Category = new List<Category>()
+
                             };
                         }
                     }
