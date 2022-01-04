@@ -24,6 +24,17 @@ namespace ProjetWPF
         public MemberPage()
         {
             InitializeComponent();
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Member> memberDAO = adf.GetMemberDAO();
+            Member m = memberDAO.Find(1);
+
+            DAO<Category> categoryDAO = adf.GetCategoryDAO();
+            List<Category> listCategory = categoryDAO.FindByMember(m);
+
+            LbxCatMember.ItemsSource = listCategory; 
+
+
+
             /*AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             List<Member> listMember = memberDAO.FindAll();

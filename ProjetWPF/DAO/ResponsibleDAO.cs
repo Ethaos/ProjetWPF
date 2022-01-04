@@ -87,5 +87,10 @@ namespace ProjetWPF.DAO
             }*/
             return null;
         }
+
+        public override List<Responsible> FindByMember(Member m)
+        {
+            return null;
+        }
     }
 }
