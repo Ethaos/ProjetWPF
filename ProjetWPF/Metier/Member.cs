@@ -11,13 +11,10 @@ namespace ProjetWPF.Metier
         private List<Bike> lbike = new List<Bike>();
 
 
-
         public Member()
         {
 
         }
-
-
         public Member(int id, string name, string firstname, int tel, string login, string password, float balance) : base(id, name, firstname, tel, login, password)
         {
             this.balance = balance;
