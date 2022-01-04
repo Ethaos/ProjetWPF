@@ -24,12 +24,12 @@ namespace ProjetWPF
         public MemberPage()
         {
             InitializeComponent();
-            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            /*AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             List<Member> listMember = memberDAO.FindAll();
-            LbxMember.ItemsSource = listMember;
+            LbxMember.ItemsSource = listMember;*/
         }
-
+        /*
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             int id, tel;
@@ -38,6 +38,7 @@ namespace ProjetWPF
             string name = textboxName.Text;
             string firstname = textboxFirstName.Text;
             string telString = textboxTel.Text;
+            string login = textboxLogin.Text;
             string password = textboxPassWord.Text;
             string balanceString = textboxBalance.Text;
 
@@ -45,7 +46,7 @@ namespace ProjetWPF
             int.TryParse(telString, out tel);
             float.TryParse(balanceString, out balance);
 
-            Member m = new Member(id, name, firstname, tel, password, balance);
+            Member m = new Member(id, name, firstname, tel, login,password, balance);
 
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
@@ -74,5 +75,7 @@ namespace ProjetWPF
             List<Member> listMember = memberDAO.FindAll();
             LbxMember.ItemsSource = listMember;
         }
+
+        */
     }
 }

@@ -17,9 +17,9 @@ namespace ProjetWPF.DAO
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand("INSERT into dbo.Member " +
-                        "(idMember,name,firstName,tel,passWord,balance) " +
+                        "(idMember,name,firstName,tel,passWord,balance,login) " +
                         "values('" + m.Id + "' , '" + m.Name + "' , '" + m.FirstName + "'" +
-                        " , '" + m.Tel + "' , '" + m.PassWord + "' , '" + m.Balance + "')",
+                        " , '" + m.Tel + "' , '" + m.PassWord + "' , '" + m.Balance + "' , '" + m.Login + "')",
                         connection);
                     cmd.ExecuteNonQuery();
                     connection.Close();
@@ -88,6 +88,7 @@ namespace ProjetWPF.DAO
                                 Tel = reader.GetInt32("tel"),
                                 PassWord = reader.GetString("passWord"),
                                 Balance = reader.GetFloat("balance"),
+                                Login = reader.GetString("login"),
                                 Category = new List<Category>()
                             };
                         }
@@ -121,7 +122,8 @@ namespace ProjetWPF.DAO
                                 FirstName = reader.GetString("firstName"),
                                 Tel = reader.GetInt32("tel"),
                                 PassWord = reader.GetString("passWord"),
-                                Balance = reader.GetFloat("balance")
+                                Balance = reader.GetFloat("balance"),
+                                Login = reader.GetString("login")
                             };
                             listMember.Add(mem);
                         }

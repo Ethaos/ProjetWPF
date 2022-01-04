@@ -8,52 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MemberPage">
 
-    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,191,350">
-        <ListBox x:Name="LbxMember" Margin="136,29,-126,-234">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Content="{Binding Id}" Width="30"/>
-                        <Label Grid.Column="1" Content="{Binding Name}" Width="70"/>
-                        <Label Grid.Column="2" Content="{Binding FirstName}" Width="70"/>
-                        <Label Grid.Column="3" Content="{Binding Tel}" Width="70"/>
-                        <Label Grid.Column="4" Content="{Binding PassWord}" Width="100"/>
-                        <Label Grid.Column="5" Content="{Binding Balance}" Width="50"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <Grid Margin="-2,50,2,-50">
-            <TextBlock Height="20"  Margin="-126,60,476,-24" Name="textBlockId" Text="Id:" Width="60"/>
-            <TextBox Name="textboxId" Margin="-57,58,354,-26" />
-            <TextBlock Height="20"  Margin="-126,92,476,-56" Name="textBlockName" Text="Name:" Width="60"/>
-            <TextBox Name="textboxName" Margin="-57,90,354,-58" />
-            <TextBlock Height="20"  Margin="-126,124,476,-88" Name="textBlockFirstName" Text="Firstname:" Width="60"/>
-            <TextBox Name="textboxFirstName" Margin="-57,122,354,-89" />
-            <TextBlock Height="20"  Margin="-126,155,476,-119" Name="textBlockTel" Text="Tel:" Width="60"/>
-            <TextBox Name="textboxTel" Margin="-57,154,354,-120" />
-            <TextBlock Height="20"  Margin="-126,187,476,-151" Name="textBlockPassWord" Text="Password:" Width="60"/>
-            <TextBox Name="textboxPassWord" Margin="-57,185,354,-151" />
-            <TextBlock Height="20"  Margin="-126,217,476,-181" Name="textBlockBalance" Text="Balance:" Width="60"/>
-            <TextBox Name="textboxBalance" Margin="-57,216,354,-182" />
-            <Button Content="Submit" Height="23" Width="70" Name="Submit" Click="Submit_Click" Margin="-57,256,397,-223" />
-        </Grid>
-
-        <Grid Margin="-2,50,2,-50">
-            <TextBlock Height="20"  Margin="327,258,15,-222" Name="textBlockDeleteId" Text="Id to delete:"/>
-            <TextBox Name="textboxDeleteId" Margin="408,254,-39,-222" />
-            <Button Content="Delete" Height="23" Width="70" Name="Delete" Click="Delete_Click" Margin="469,255,-129,-222" />
-        </Grid>
-        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="224*"/>
+        </Grid.RowDefinitions>
+        <Label Margin="298,181,312,224" Grid.Row="1" FontSize="24">PAGE MEMBERS</Label>
     </Grid>
 </Page>

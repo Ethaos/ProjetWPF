@@ -50,12 +50,13 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }
-            return listResponsible;*/
+            }*/
+            return null;
         }
 
         public override Responsible Find(int id)
         {
+            /*
             Responsible responsible = null;
 
             try
@@ -83,8 +84,8 @@ namespace ProjetWPF.DAO
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
-            }
-            return Responsible;
+            }*/
+            return null;
         }
     }
 }
