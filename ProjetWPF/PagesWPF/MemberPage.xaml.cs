@@ -22,6 +22,7 @@ namespace ProjetWPF
     public partial class MemberPage : Page
     {
         Member m = null;
+        List<Category> listCategory = new List<Category>();
         public MemberPage(Member member)
         {
             InitializeComponent();
@@ -30,8 +31,7 @@ namespace ProjetWPF
             DAO<Member> memberDAO = adf.GetMemberDAO();
 
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
-            List<Category> listCategory = categoryDAO.FindBy(member.Id);
-
+            listCategory = categoryDAO.FindBy(member.Id);
             LbxCatMember.ItemsSource = listCategory;
 
             List<Category> listCat = categoryDAO.FindAll();
@@ -42,25 +42,43 @@ namespace ProjetWPF
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
-            List<Category> listCategory = categoryDAO.FindBy(m.Id);
-            LbxCatMember.ItemsSource = listCategory;
+            List<Category> listCateg = categoryDAO.FindBy(m.Id);
+            LbxCatMember.ItemsSource = listCateg;
         }
 
         private void AddCatClick(object sender, RoutedEventArgs e)
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-
-
+            DAO<Category> categoryDAO = adf.GetCategoryDAO();
 
             int idCategory;
             string idString = textboxAddCategory.Text;
-
             int.TryParse(idString, out idCategory);
+            bool inside = false;
 
-            memberDAO.Add(m.Id, idCategory);
+            foreach (Category category in listCategory)
+            {
+                if (category.Num == idCategory)
+                {
+                    inside = true;
+                }
+            }
 
-            Refresh();
+            if (listCategory.Count >= 4)
+            {
+                MessageBox.Show("You are already in all the categories.");
+            }
+            else if (inside)
+            {
+                MessageBox.Show("You are already in this categories.");
+            }
+            else 
+            {
+                memberDAO.Add(m.Id, idCategory);
+                listCategory.Add(categoryDAO.Find(idCategory));
+                Refresh();
+            }
         }
     }
 }
