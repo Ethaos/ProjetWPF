@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetWPF.Metier
 {
-    class Member : Person
+    public class Member : Person
     {
         private float balance;
         private List<Category> lcat = new List<Category>();
@@ -20,13 +20,6 @@ namespace ProjetWPF.Metier
             this.balance = balance;
         }
 
-        public Member(int id, string name, string firstname, int tel, string login, string password, float balance, List<Category> lcat,List<Bike> lbike) : base (id, name, firstname, tel, login, password)
-        {
-            this.balance = balance;
-            this.lcat = lcat;
-            this.lbike = lbike;
-        }
-
         public float Balance
         {
             get { return balance; }
@@ -37,13 +30,7 @@ namespace ProjetWPF.Metier
         {
             get { return lcat; }
             set { lcat = value; }
-        }
-
-        public List<Bike> Bike
-        {
-            get { return lbike; }
-            set { lbike = value; }
-        }        
+        }    
 
         public void calculbalance()
         {

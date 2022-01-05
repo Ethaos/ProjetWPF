@@ -21,7 +21,7 @@ namespace ProjetWPF.DAO
         public abstract List<T> FindBy(int id); //Utilisé dans CatégoryDAO
         public abstract List<T> FindAll();//Utilisé pour trouver tous les lignes d'une table
 
-       
+        public abstract T LoginCheck(string a, string b);
         
     }
 }

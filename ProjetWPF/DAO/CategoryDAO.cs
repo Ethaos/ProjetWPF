@@ -126,5 +126,10 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
+
+        public override Category LoginCheck(string a, string b)
+        {
+            return null;
+        }
     }
 }

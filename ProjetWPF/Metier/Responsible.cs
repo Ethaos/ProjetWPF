@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetWPF.Metier
 {
-    class Responsible : Person
+    public class Responsible : Person
     {
         private int idCategory;
 

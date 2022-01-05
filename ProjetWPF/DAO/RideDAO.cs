@@ -84,6 +84,9 @@ namespace ProjetWPF.DAO
             return null;
         }
 
-         
+        public override Ride LoginCheck(string a, string b)
+        {
+            return null;
+        }
     }
 }

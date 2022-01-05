@@ -24,24 +24,66 @@ namespace ProjetWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool check;
         public MainWindow()
         {
             InitializeComponent();
+            Disconnect.Visibility = Visibility.Hidden;
         }
 
-        private void MemberClick(object sender, RoutedEventArgs e)
+        private void loginClick(object sender, RoutedEventArgs e)
         {
-            //Main.Content = new MemberPage();
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            string password = boxPassword.Password;
+            string login = boxLogin.Text;
+
+            if (check == true)
+            {
+                DAO<Member> memberDAO = adf.GetMemberDAO();
+                Member member = memberDAO.LoginCheck(login, password);
+                if (member == null)
+                {
+                    MessageBox.Show("Error Member not found.");
+                }
+                else
+                {
+                    Main.Content = new MemberPage();
+                    LoginGrid.Visibility = Visibility.Hidden;
+                    Disconnect.Visibility = Visibility.Visible;
+                }
+            }
+            else if (check == false)
+            {
+                DAO<Responsible> responsibleDAO = adf.GetResponsibleDAO();
+                Responsible responsible = responsibleDAO.LoginCheck(login, password);
+                if (responsible == null)
+                {
+                    MessageBox.Show("Error Responsible not found.");
+                }
+                else
+                {
+                    Main.Content = new ResponsiblePage();
+                    LoginGrid.Visibility = Visibility.Hidden;
+                    Disconnect.Visibility = Visibility.Visible;
+                }
+            }
         }
 
-        private void CategoryClick(object sender, RoutedEventArgs e)
+        private void memberClick(object sender, RoutedEventArgs e)
         {
-            //Main.Content = new CategoryPage();
+            check = true;
         }
 
-        private void ResponsibleClick(object sender, RoutedEventArgs e)
+        private void responsibleClick(object sender, RoutedEventArgs e)
         {
-            //Main.Content = new ResponsiblePage();
+            check = false;
+        }
+
+        private void disconnectClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = null;
+            LoginGrid.Visibility = Visibility.Visible;
+            Disconnect.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -160,11 +160,47 @@ namespace ProjetWPF.DAO
             return false;
         }
 
+        public override Member LoginCheck(string login, string password)
+        {
+            Member member = null;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    
+                    SqlCommand cmd = new SqlCommand("Select *  from dbo.Member where passWord = @pw and login = @login",
+                        connection);
+                    cmd.Parameters.AddWithValue("pw", password);
+                    cmd.Parameters.AddWithValue("login", login);
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            member = new Member
+                            {
+                                Id = reader.GetInt32("idMember"),
+                                Name = reader.GetString("name"),
+                                FirstName = reader.GetString("firstName"),
+                                Tel = reader.GetInt32("tel"),
+                                PassWord = reader.GetString("passWord"),
+                                Balance = reader.GetFloat("balance"),
+                                Login = reader.GetString("login")
+                            };
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return member;
+        }
+
         public override List<Member> FindBy(int id)
         {
             return null;
         }
-
-        
     }
 }
