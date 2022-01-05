@@ -9,7 +9,7 @@
       Title="MemberPage">
 
     <Grid>
-        <ListBox x:Name="LbxCatMember" Margin="56,100,586,180" Width="150" Height="170" >
+        <ListBox x:Name="LbxCatMember" Margin="60,100,600,206" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -25,28 +25,26 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Label Content="Member Page" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Height="45" Width="170" FontSize="24"/>
-        <Label Content="Your categories" HorizontalAlignment="Left" Margin="44,55,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
+        <Label Content="Your categories" HorizontalAlignment="Left" Margin="54,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
 
-        <ListBox x:Name="LbxDisplayCategories" Margin="478,100,172,180" Width="150" Height="170">
+        <ListBox x:Name="LbxDisplayCategories" Margin="478,100,182,206">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
-                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <Label Content="{Binding Num}" Width="30"/>
-                        <Label Grid.Column="1" Content="{Binding NameCategory}" Width="70"/>
                         <Label Grid.Column="2" Content="{Binding NameUnderCategory}" Width="70"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <Label Content="Add category" HorizontalAlignment="Left" Margin="473,55,0,0" VerticalAlignment="Top" Height="45" Width="174" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="492,283,0,0" VerticalAlignment="Top" Width="53" Name="textboxAddCategory" Height="25"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="563,283,0,0" VerticalAlignment="Top" Height="25" Width="65" Click="AddCatClick"/>
+        <TextBox HorizontalAlignment="Left" Margin="478,257,0,0" VerticalAlignment="Top" Width="53" Name="textboxAddCategory" Height="25"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="553,257,0,0" VerticalAlignment="Top" Height="25" Width="65" Click="AddCatClick"/>
 
     </Grid>
 </Page>

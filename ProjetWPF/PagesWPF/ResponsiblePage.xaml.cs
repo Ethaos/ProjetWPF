@@ -20,9 +20,11 @@ namespace ProjetWPF
     
     public partial class ResponsiblePage : Page
     {
-        public ResponsiblePage()
+        Responsible resp = null;
+        public ResponsiblePage(Responsible responsible)
         {
             InitializeComponent();
+            resp = responsible;
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Responsible> responsibleDAO = adf.GetResponsibleDAO();
             calendar.SelectedDate = DateTime.Now.AddDays(1);

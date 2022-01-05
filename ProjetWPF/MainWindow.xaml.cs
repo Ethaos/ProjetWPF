@@ -47,8 +47,10 @@ namespace ProjetWPF
                 }
                 else
                 {
-                    Main.Content = new MemberPage();
+                    Main.Content = new MemberPage(member);
                     LoginGrid.Visibility = Visibility.Hidden;
+                    boxLogin.Text = String.Empty;
+                    boxPassword.Password = String.Empty;
                     Disconnect.Visibility = Visibility.Visible;
                 }
             }
@@ -62,8 +64,10 @@ namespace ProjetWPF
                 }
                 else
                 {
-                    Main.Content = new ResponsiblePage();
+                    Main.Content = new ResponsiblePage(responsible);
                     LoginGrid.Visibility = Visibility.Hidden;
+                    boxLogin.Text = String.Empty;
+                    boxPassword.Password = String.Empty;
                     Disconnect.Visibility = Visibility.Visible;
                 }
             }

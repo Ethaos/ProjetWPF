@@ -21,15 +21,16 @@ namespace ProjetWPF
     /// </summary>
     public partial class MemberPage : Page
     {
-        public MemberPage()
+        Member m = null;
+        public MemberPage(Member member)
         {
             InitializeComponent();
+            m = member;
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-            Member m = memberDAO.Find(2);
 
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
-            List<Category> listCategory = categoryDAO.FindBy(m.Id);
+            List<Category> listCategory = categoryDAO.FindBy(member.Id);
 
             LbxCatMember.ItemsSource = listCategory;
 
@@ -40,8 +41,6 @@ namespace ProjetWPF
         private void Refresh()
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
-            DAO<Member> memberDAO = adf.GetMemberDAO();
-            Member m = memberDAO.Find(2);
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
             List<Category> listCategory = categoryDAO.FindBy(m.Id);
             LbxCatMember.ItemsSource = listCategory;
@@ -51,7 +50,8 @@ namespace ProjetWPF
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-            Member m = memberDAO.Find(2);
+
+
 
             int idCategory;
             string idString = textboxAddCategory.Text;
