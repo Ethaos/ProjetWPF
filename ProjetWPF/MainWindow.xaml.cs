@@ -4,6 +4,7 @@ using ProjetWPF.Metier;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace ProjetWPF
             string password = boxPassword.Password;
             string login = boxLogin.Text;
 
-            if (check == true)
+            if (check == false)
             {
                 DAO<Member> memberDAO = adf.GetMemberDAO();
                 Member member = memberDAO.LoginCheck(login, password);
@@ -54,7 +55,7 @@ namespace ProjetWPF
                     Disconnect.Visibility = Visibility.Visible;
                 }
             }
-            else if (check == false)
+            else if (check == true)
             {
                 DAO<Responsible> responsibleDAO = adf.GetResponsibleDAO();
                 Responsible responsible = responsibleDAO.LoginCheck(login, password);
@@ -73,21 +74,32 @@ namespace ProjetWPF
             }
         }
 
-        private void memberClick(object sender, RoutedEventArgs e)
-        {
-            check = true;
-        }
-
-        private void responsibleClick(object sender, RoutedEventArgs e)
-        {
-            check = false;
-        }
+        
 
         private void disconnectClick(object sender, RoutedEventArgs e)
         {
             Main.Content = null;
             LoginGrid.Visibility = Visibility.Visible;
             Disconnect.Visibility = Visibility.Hidden;
+        }
+
+        private void Choice_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem cbo = ((sender as ComboBox).SelectedItem as ComboBoxItem);
+
+            string value = cbo.Content.ToString();
+
+            if (value == "Member")
+            {
+                check = false;
+            }
+            else if (value == "Responsible")
+            {
+                check = true;
+            }
+            
+          
+           
         }
     }
 }
