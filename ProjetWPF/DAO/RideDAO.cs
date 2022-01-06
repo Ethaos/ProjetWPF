@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -18,8 +19,8 @@ namespace ProjetWPF.DAO
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand("INSERT into dbo.Ride " +
-                        "(num,placeDeparture,dateDeparture,packageFee,idCategory) " +
-                        "values('" + r.Num + "' , '" + r.PlaceDeparture + "' , '" + r.DateDeparture + "'" +
+                        "(placeDeparture,dateDeparture,packageFee,idCategory) " +
+                        "values('" + r.PlaceDeparture + "' , '" + r.DateDeparture + "'" +
                         " , '" + r.PackageFee + "' , '" + r.IdCategory +"')",
                         connection);
                     cmd.ExecuteNonQuery();
@@ -81,7 +82,38 @@ namespace ProjetWPF.DAO
 
         public override List<Ride> FindBy(int id)
         {
-            return null;
+            List<Ride> listRide = new List<Ride>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Ride WHERE idCategory = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Ride ride = new Ride
+                            {
+                                Num = reader.GetInt32("num"),
+                                PlaceDeparture = reader.GetString("placeDeparture"),
+                                DateDeparture = reader.GetDateTime("dateDeparture"),
+                                PackageFee = reader.GetFloat("packageFee"),
+                                IdCategory = reader.GetInt32("idCategory")
+                            };
+                            listRide.Add(ride);
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return listRide;
         }
 
         public override Ride LoginCheck(string a, string b)

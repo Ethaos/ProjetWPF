@@ -27,19 +27,34 @@ namespace ProjetWPF
             resp = responsible;
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Responsible> responsibleDAO = adf.GetResponsibleDAO();
+            DAO<Ride> rideDao = adf.GetRideDAO();
+            DAO<Category> categoryDao = adf.GetCategoryDAO();
+
+            List<Ride> listRide = rideDao.FindBy(responsible.Id);
+            LbxRides.ItemsSource = listRide;
+            LblFirstName.Content = responsible.FirstName;
+            Category cat = categoryDao.Find(responsible.Category);
+            LblNameUnderCategory.Content = cat.NameUnderCategory;
+
             calendar.SelectedDate = DateTime.Now.AddDays(1);
         }
 
-        private void AddDate(object sender, RoutedEventArgs e)
+        private void AddRide(object sender, RoutedEventArgs e)
         {
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Ride> rideDao = adf.GetRideDAO();
+
+            float packageFee;
             DateTime date = (DateTime)calendar.SelectedDate;
+            string place = textBoxPlace.Text;
+            string packageString = textBoxFee.Text;
 
+            float.TryParse(packageString, out packageFee);
 
+            Ride ride = new Ride(place, date, packageFee, resp.Category);
 
-            Trace.WriteLine(date);
+            rideDao.Create(ride);
             
-             
-
         }
     }
 }

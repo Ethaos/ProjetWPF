@@ -13,6 +13,14 @@ namespace ProjetWPF.Metier
         private int idCategory;
 
         public Ride() { }
+
+        public Ride(string placeDeparture, DateTime dateDeparture, float packageFee, int idCategory)
+        {
+            this.placeDeparture = placeDeparture;
+            this.dateDeparture = dateDeparture;
+            this.packageFee = packageFee;
+            this.idCategory = idCategory;
+        }
         public Ride(int num, string placeDeparture, DateTime dateDeparture, float packageFee, int idCategory)
         {
             this.num = num;
