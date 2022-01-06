@@ -101,7 +101,7 @@ namespace ProjetWPF.DAO
                                 Num = reader.GetInt32("num"),
                                 PlaceDeparture = reader.GetString("placeDeparture"),
                                 DateDeparture = reader.GetDateTime("dateDeparture"),
-                                PackageFee = reader.GetFloat("packageFee"),
+                                PackageFee = reader.GetDouble("packageFee"),
                                 IdCategory = reader.GetInt32("idCategory")
                             };
                             listRide.Add(ride);

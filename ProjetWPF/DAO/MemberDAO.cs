@@ -87,7 +87,7 @@ namespace ProjetWPF.DAO
                                 FirstName = reader.GetString("firstName"),
                                 Tel = reader.GetInt32("tel"),
                                 PassWord = reader.GetString("passWord"),
-                                Balance = reader.GetFloat("balance"),
+                                Balance = reader.GetDouble("balance"),
                                 Login = reader.GetString("login"),
                                 Category = new List<Category>()
 
@@ -123,7 +123,7 @@ namespace ProjetWPF.DAO
                                 FirstName = reader.GetString("firstName"),
                                 Tel = reader.GetInt32("tel"),
                                 PassWord = reader.GetString("passWord"),
-                                Balance = reader.GetFloat("balance"),
+                                Balance = reader.GetDouble("balance"),
                                 Login = reader.GetString("login")
                             };
                             listMember.Add(mem);
@@ -184,7 +184,7 @@ namespace ProjetWPF.DAO
                                 FirstName = reader.GetString("firstName"),
                                 Tel = reader.GetInt32("tel"),
                                 PassWord = reader.GetString("passWord"),
-                                Balance = reader.GetFloat("balance"),
+                                Balance = reader.GetDouble("balance"),
                                 Login = reader.GetString("login")
                             };
                         }
