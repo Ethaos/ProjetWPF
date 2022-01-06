@@ -3,6 +3,7 @@ using ProjetWPF.Factory;
 using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,9 @@ namespace ProjetWPF
     {
         Member m = null;
         List<Category> listCategory = new List<Category>();
+        List<Category> listCategoryAll = new List<Category>();
+        int idCategory = 0;
+
         public MemberPage(Member member)
         {
             InitializeComponent();
@@ -39,7 +43,10 @@ namespace ProjetWPF
             LbxBikes.ItemsSource = listBike;
 
             List<Category> listCat = categoryDAO.FindAll();
-            //LbxDisplayCategories.ItemsSource = listCat;
+            CatChoise.ItemsSource = listCat;
+
+            listCategoryAll = listCat;
+
         }
 
         private void Refresh()
@@ -49,17 +56,22 @@ namespace ProjetWPF
             List<Category> listCateg = categoryDAO.FindBy(m.Id);
             LbxCatMember.ItemsSource = listCateg;
         }
+        private void CatChoise_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+           
+            int cbo = CatChoise.SelectedIndex;
+            idCategory = cbo + 1;
+            
 
-        private void AddCatClick(object sender, RoutedEventArgs e)
+        }
+            private void AddCatClick(object sender, RoutedEventArgs e)
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
-
-            int idCategory;
-            /*string idString = textboxAddCategory.Text;
-            int.TryParse(idString, out idCategory);
+            
             bool inside = false;
+
 
             foreach (Category category in listCategory)
             {
@@ -83,8 +95,10 @@ namespace ProjetWPF
                 listCategory.Add(categoryDAO.Find(idCategory));
                 Refresh();
             }
-
-            */
+            
+            
         }
+
+
     }
 }

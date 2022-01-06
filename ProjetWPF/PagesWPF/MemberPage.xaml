@@ -27,12 +27,15 @@
         <Label Content="Member Page" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Height="45" Width="170" FontSize="24"/>
         <Label Content="Categories" HorizontalAlignment="Left" Margin="54,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
 
-        <ComboBox Margin="59,291,671,125">
-            <ComboBoxItem>Cyclo</ComboBoxItem>
-            <ComboBoxItem>Trialist</ComboBoxItem>
-            <ComboBoxItem>DownHill</ComboBoxItem>
-            <ComboBoxItem>Hiker</ComboBoxItem>
+
+        <ComboBox x:Name="CatChoise" Margin="59,291,657,125" SelectedIndex="0" SelectionChanged="CatChoise_SelectionChanged" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding NameUnderCategory}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
         </ComboBox>
+
 
         <!--<ListBox x:Name="LbxDisplayCategories" Margin="478,100,182,206">
             <ListBox.ItemTemplate>
@@ -53,7 +56,7 @@
         <TextBox HorizontalAlignment="Left" Margin="478,257,0,0" VerticalAlignment="Top" Width="53" Name="textboxAddCategory" Height="25"/>
         -->
 
-        <Button Content="Add" HorizontalAlignment="Left" Margin="134,291,0,0" VerticalAlignment="Top" Height="34" Width="65" Click="AddCatClick"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="153,290,0,0" VerticalAlignment="Top" Height="34" Width="81" Click="AddCatClick"/>
         <Label Content="Bikes" HorizontalAlignment="Left" Margin="462,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
         <Label Content="Weight" Margin="468,98,259,316"/>
         <Label Content="Type" Margin="520,98,230,316"/>
