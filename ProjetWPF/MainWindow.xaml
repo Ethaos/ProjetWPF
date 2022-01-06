@@ -13,12 +13,20 @@
             <TextBlock HorizontalAlignment="Left" Margin="26,82,0,0" Text="Password" VerticalAlignment="Top" Height="24" Width="76" FontSize="18"/>
             <PasswordBox Name="boxPassword" HorizontalAlignment="Left" Margin="149,79,0,0" VerticalAlignment="Top" Width="158" Height="27"/>
 
+            <!--<Label Content="" x:Name="choosen" Margin="120,120,158,28"/>
             <Menu Margin="37,119,249,27">
-                <MenuItem Header="Choose" Height="27" Width="52">
+                <MenuItem Header="Choose Role" Height="27" Width="52">
                     <MenuItem Header="Member" Name="choiceMember" Click="memberClick"/>
                     <MenuItem Header="Responsible" Name="choiceResponsible" Click="responsibleClick"/>
                 </MenuItem>
-            </Menu>
+            </Menu>-->
+
+            <StackPanel Margin="30,119,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ComboBox x:Name="Choice" SelectionChanged="Choice_SelectionChanged">
+                    <ComboBoxItem  Content="Member" IsSelected="True"/>
+                    <ComboBoxItem Content="Responsible"/>
+                </ComboBox>
+            </StackPanel>
             <Button Content="Log in" HorizontalAlignment="Left" Margin="228,119,0,0" VerticalAlignment="Top" Height="27" Width="79" Click="loginClick"></Button>
         </Grid>
 
