@@ -39,6 +39,14 @@ namespace ProjetWPF
             calendar.SelectedDate = DateTime.Now.AddDays(1);
         }
 
+        private void Refresh()
+        {
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Ride> rideDao = adf.GetRideDAO();
+            List<Ride> listRide = rideDao.FindBy(resp.Id);
+            LbxRides.ItemsSource = listRide;
+        }
+
         private void AddRide(object sender, RoutedEventArgs e)
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
@@ -54,7 +62,7 @@ namespace ProjetWPF
             Ride ride = new Ride(place, date, packageFee, resp.Category);
 
             rideDao.Create(ride);
-            
+            Refresh();
         }
     }
 }
