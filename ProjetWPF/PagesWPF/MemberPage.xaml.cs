@@ -29,13 +29,17 @@ namespace ProjetWPF
             m = member;
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
-
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
+            DAO<Bike> bikeDAO = adf.GetBikeDAO();
+
             listCategory = categoryDAO.FindBy(member.Id);
             LbxCatMember.ItemsSource = listCategory;
 
+            List<Bike> listBike = bikeDAO.FindBy(member.Id);
+            LbxBikes.ItemsSource = listBike;
+
             List<Category> listCat = categoryDAO.FindAll();
-            LbxDisplayCategories.ItemsSource = listCat;
+            //LbxDisplayCategories.ItemsSource = listCat;
         }
 
         private void Refresh()
@@ -53,7 +57,7 @@ namespace ProjetWPF
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
 
             int idCategory;
-            string idString = textboxAddCategory.Text;
+            /*string idString = textboxAddCategory.Text;
             int.TryParse(idString, out idCategory);
             bool inside = false;
 
@@ -79,6 +83,8 @@ namespace ProjetWPF
                 listCategory.Add(categoryDAO.Find(idCategory));
                 Refresh();
             }
+
+            */
         }
     }
 }

@@ -1,0 +1,80 @@
+﻿using ProjetWPF.Metier;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
+
+namespace ProjetWPF.DAO
+{
+    internal class BikeDAO : DAO<Bike>
+    {
+        public override bool Create(Bike obj)
+        {
+            return false;
+        }
+
+        public override bool Delete(Bike obj)
+        {
+            return false;
+        }
+
+        public override bool Update(Bike obj)
+        {
+            return false;
+        }
+
+        public override Bike Find(int id)
+        {
+            return null;
+        }
+
+        public override List<Bike> FindAll()
+        {
+            return null;
+        }
+
+        public override List<Bike> FindBy(int id)
+        {
+            List<Bike>  listBike = new List<Bike>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Bike WHERE idMember = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Bike bike = new Bike
+                            {
+                                Weight = reader.GetFloat("weight"),
+                                Type = reader.GetString("type"),
+                                Length = reader.GetFloat("length")
+                            };
+                            listBike.Add(bike);
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return listBike;
+        }
+
+        public override Bike LoginCheck(string a, string b)
+        {
+            return null;
+        }
+        public override bool Add(int a, int b)
+        {
+            return false;
+        }
+    }
+}

@@ -14,11 +14,10 @@ namespace ProjetWPF.Factory
     internal abstract class AbstractDAOFactory
     {
         public abstract DAO<Member> GetMemberDAO();
-
         public abstract DAO<Category> GetCategoryDAO();
         public abstract DAO<Responsible> GetResponsibleDAO();
-
         public abstract DAO<Ride> GetRideDAO();
+        public abstract DAO<Bike> GetBikeDAO();
 
         /*
         public abstract DAO<Professeur> GetProfesseurDAO();

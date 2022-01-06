@@ -28,6 +28,11 @@ namespace ProjetWPF.Factory
             return new RideDAO();
         }
 
+        public override DAO<Bike> GetBikeDAO()
+        {
+            return new BikeDAO();
+        }
+
         /*
         public override DAO<Category> GetCategoryDAO()
         {
