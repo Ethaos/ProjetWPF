@@ -87,6 +87,7 @@ namespace ProjetWPF
 
         private void Choice_SelectionChanged(object sender, RoutedEventArgs e)
         {
+            
             ComboBoxItem cbo = ((sender as ComboBox).SelectedItem as ComboBoxItem);
 
             string value = cbo.Content.ToString();
