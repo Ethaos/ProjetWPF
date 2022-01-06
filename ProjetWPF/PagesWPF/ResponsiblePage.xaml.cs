@@ -52,15 +52,16 @@ namespace ProjetWPF
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Ride> rideDao = adf.GetRideDAO();
 
-            float packageFee;
+            double packageFee;
             DateTime date = (DateTime)calendar.SelectedDate;
             string place = textBoxPlace.Text;
             string packageString = textBoxFee.Text;
 
-            float.TryParse(packageString, out packageFee);
+            double.TryParse(packageString, out packageFee);
 
             Ride ride = new Ride(place, date, packageFee, resp.Category);
 
+            
             rideDao.Create(ride);
             Refresh();
         }

@@ -52,9 +52,9 @@ namespace ProjetWPF.DAO
                         {
                             Bike bike = new Bike
                             {
-                                Weight = reader.GetFloat("weight"),
+                                Weight = reader.GetDouble("weight"),
                                 Type = reader.GetString("type"),
-                                Length = reader.GetFloat("length")
+                                Length = reader.GetDouble("length")
                             };
                             listBike.Add(bike);
                         }
