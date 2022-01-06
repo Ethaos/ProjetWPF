@@ -197,10 +197,14 @@ namespace ProjetWPF.DAO
             }
             return member;
         }
-
         public override List<Member> FindBy(int id)
         {
             return null;
+        }
+
+        public override bool Inscription(Member m)
+        {
+            return false;
         }
     }
 }

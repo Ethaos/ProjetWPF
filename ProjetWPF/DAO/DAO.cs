@@ -18,6 +18,7 @@ namespace ProjetWPF.DAO
         public abstract bool Update(T obj);
         public abstract T Find(int id);
         public abstract bool Add(int a, int b);
+        public abstract bool Inscription(T obj);
         public abstract List<T> FindBy(int id); //Utilisé dans CatégoryDAO
         public abstract List<T> FindAll();//Utilisé pour trouver tous les lignes d'une table
 

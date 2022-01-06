@@ -6,24 +6,40 @@ namespace ProjetWPF.Metier
 {
     class Inscription
     {
-        private Boolean passengers;
-        private Boolean bikes;
+        private int idMember;
+        private int idRide;
+        private int passenger;
+        private int bikes;
 
-        public Inscription(Boolean passengers, Boolean bikes)
+        public Inscription(int idMember, int idRide,int passenger, int bikes)
         {
-            this.passengers = passengers;
+            this.idMember = idMember;
+            this.idRide = idRide;
+            this.passenger = passenger;
             this.bikes = bikes;
         }
 
         public Inscription(){ }
 
-        public Boolean Passengers
+        public int Member
         {
-            get { return passengers; }
-            set { passengers = value; }
+            get { return idMember; }
+            set { idMember = value; }
         }
 
-        public Boolean Bikes
+        public int Ride
+        {
+            get { return idRide; }
+            set { idRide = value; }
+        }
+
+        public int Passenger
+        {
+            get { return passenger; }
+            set { passenger = value; }
+        }
+
+        public int Bikes
         {
             get { return bikes; }
             set { bikes = value; }

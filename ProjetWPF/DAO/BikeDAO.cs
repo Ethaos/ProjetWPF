@@ -60,6 +60,13 @@ namespace ProjetWPF.DAO
                         }
                     }
                 }
+                if (listBike.Count != 0)
+                {
+                    MemberDAO memberDAO = new MemberDAO();
+                    Member m = memberDAO.Find(id);
+
+                    m.LBike = listBike;
+                }
             }
             catch (SqlException)
             {
@@ -73,6 +80,11 @@ namespace ProjetWPF.DAO
             return null;
         }
         public override bool Add(int a, int b)
+        {
+            return false;
+        }
+
+        public override bool Inscription(Bike obj)
         {
             return false;
         }

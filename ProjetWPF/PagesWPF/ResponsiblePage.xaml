@@ -11,18 +11,18 @@
     <Grid>
         <Label Content="Hi," Margin="36,10,706,385" FontSize="24"/>
         <Label Margin="84,10,602,385" x:Name="LblFirstName" Content="{Binding FirstName}" FontSize="24"/>
-        <Label Content="Catégory : " Margin="350,10,320,385" FontSize="24"/>
+        <Label Content="Category : " Margin="350,10,320,385" FontSize="24"/>
         <Label Margin="480,10,206,385" x:Name="LblNameUnderCategory" Content="{Binding NameUnderCategory}" FontSize="24"/>
         <Grid Margin="400,102,26,126">
             <Calendar x:Name="calendar" SelectedDate="" SelectionMode="SingleDate" Margin="10,12,174,26"/>
             <Label Content="Selected date" Margin="205,15,53,164"/>
-            <TextBox Text="{Binding SelectedDate, ElementName=calendar, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  x:Name="textboxDate" Margin="304,19,10,184"/>
+            <TextBox Text="{Binding SelectedDate, ElementName=calendar, StringFormat=d, UpdateSourceTrigger=PropertyChanged}"  x:Name="textboxDate" Margin="291,18,1,178"/>
             <TextBlock HorizontalAlignment="Left" Margin="211,55,0,0" Text="Place" VerticalAlignment="Top"/>
-            <TextBox Name="textBoxPlace" HorizontalAlignment="Left" Margin="264,54,0,0" VerticalAlignment="Top" Width="100"/>
+            <TextBox Name="textBoxPlace" HorizontalAlignment="Left" Margin="256,54,0,0" VerticalAlignment="Top" Width="100" Height="23"/>
             <TextBlock HorizontalAlignment="Left" Margin="211,86,0,0" Text="Package Fee" VerticalAlignment="Top"/>
-            <TextBox Name="textBoxFee" HorizontalAlignment="Left" Margin="313,86,0,0" VerticalAlignment="Top" Width="51"/>
+            <TextBox Name="textBoxFee" HorizontalAlignment="Left" Margin="305,86,0,0" VerticalAlignment="Top" Width="51" Height="25"/>
 
-            <Button Content="Create" Click="AddRide" Margin="272,131,23,67" />
+            <Button Content="Create" Click="AddRide" Margin="302,131,9,59" />
         </Grid>
         <Label Content="Rides of the category" Margin="34,75,553,320" FontSize="18"/>
         <ListBox x:Name="LbxRides" Margin="40,117,500,170" >

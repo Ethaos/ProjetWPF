@@ -131,5 +131,10 @@ namespace ProjetWPF.DAO
         {
             return null;
         }
+
+        public override bool Inscription(Category obj)
+        {
+            return false;
+        }
     }
 }

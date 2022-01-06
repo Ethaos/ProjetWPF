@@ -33,6 +33,11 @@ namespace ProjetWPF.Factory
             return new BikeDAO();
         }
 
+        public override DAO<Inscription> GetInscriptionDAO()
+        {
+            return new InscriptionDAO();
+        }
+
         /*
         public override DAO<Category> GetCategoryDAO()
         {

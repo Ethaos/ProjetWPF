@@ -112,5 +112,10 @@ namespace ProjetWPF.DAO
         {
             return null;
         }
+
+        public override bool Inscription(Responsible obj)
+        {
+            return false;
+        }
     }
 }

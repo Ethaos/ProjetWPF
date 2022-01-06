@@ -53,14 +53,15 @@ namespace ProjetWPF
             DAO<Ride> rideDao = adf.GetRideDAO();
 
             double packageFee;
-            DateTime date = (DateTime)calendar.SelectedDate;
+            DateTime date;
+            string dateString = textboxDate.Text;
             string place = textBoxPlace.Text;
             string packageString = textBoxFee.Text;
 
+            DateTime.TryParse(dateString, out date);
             double.TryParse(packageString, out packageFee);
 
             Ride ride = new Ride(place, date, packageFee, resp.Category);
-
             
             rideDao.Create(ride);
             Refresh();

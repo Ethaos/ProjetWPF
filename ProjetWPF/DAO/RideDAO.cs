@@ -120,5 +120,10 @@ namespace ProjetWPF.DAO
         {
             return null;
         }
+
+        public override bool Inscription(Ride obj)
+        {
+            return false;
+        }
     }
 }
