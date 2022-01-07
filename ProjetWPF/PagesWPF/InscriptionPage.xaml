@@ -57,8 +57,8 @@
             <TextBox Name="textBoxMembers" HorizontalAlignment="Left" Margin="84,1,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
         </Grid>
 
-        <Label x:Name="NoCar" Content="You can't register for the moment, no driver available" Margin="441,48,76,159"/>
 
+        <Label x:Name="NoCar" Content="You can't register for the moment, no driver available" Margin="441,48,76,159"/>
         <Grid x:Name="CarChoice">
             <ListBox x:Name="LbxCar" Margin="439,47,76,135" SelectionChanged="CarChoice_SelectionChanged">
                 <ListBox.ItemTemplate>
@@ -70,6 +70,7 @@
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
+                            
                             <Label Content="{Binding PMember}" Width="30"/>
                             <Label Grid.Column="2" Content="{Binding PBike}" Width="70"/>
                         </Grid>

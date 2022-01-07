@@ -93,12 +93,20 @@ namespace ProjetWPF.PagesWPF
                 if (listCar.Any())
                 {
                     listV= listCar;
-                    NoCar.Visibility = Visibility.Hidden;
+                   
+                }
+
+                if (!listCar.Any() && check)
+                {
+                    
+                    NoCar.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    NoCar.Visibility = Visibility.Visible;
+                    NoCar.Visibility = Visibility.Hidden;
                 }
+                
+               
 
             }
         }
@@ -123,6 +131,7 @@ namespace ProjetWPF.PagesWPF
                 check = true;
                 checkBoxDriver.IsChecked = false;
                 CarChoice.Visibility = Visibility.Visible;
+                
 
             }
             else if(checkBoxPassenger.IsChecked == false){
@@ -130,7 +139,7 @@ namespace ProjetWPF.PagesWPF
                 bike = 0;
                 check = false;
                 checkBoxDriver.IsChecked = true;
-               CarChoice.Visibility = Visibility.Hidden;
+                CarChoice.Visibility = Visibility.Hidden;
             }
         }
         private void driverChecked(object sender, RoutedEventArgs e)
