@@ -22,7 +22,7 @@
             <Label Content="Num" Margin="-7,0,163,0"/>
             <Label Content="Place" Margin="33,0,-34,0"/>
             <Label Content="Date" Margin="98,0,19,0"/>
-            <Label Content="Fee" Margin="166,0,-166,0"/>
+            <Label Content="Fee" Margin="166,0,-34,0"/>
         </Grid>
         <ListBox x:Name="LbxRides" Margin="43,149,476,201" SelectionChanged="RideChoice_SelectionChanged">
             <ListBox.ItemTemplate>
@@ -60,7 +60,12 @@
 
         <Label x:Name="NoCar" Content="You can't register for the moment, no driver available" Margin="441,48,76,159"/>
         <Grid x:Name="CarChoice">
-            <ListBox x:Name="LbxCar" Margin="439,47,76,135" SelectionChanged="CarChoice_SelectionChanged">
+            <Grid Margin="453,127,82,289">
+                <Label Content="Num" Margin="-7,0,163,0"/>
+                <Label Content="Place Passengers" Margin="33,0,-34,0"/>
+                <Label Content="Place Bikes" Margin="140,0,-23,0"/>
+            </Grid>
+            <ListBox x:Name="LbxCar" Margin="443,149,82,201" SelectionChanged="CarChoice_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -68,11 +73,12 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                                 <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
-                            
-                            <Label Content="{Binding PMember}" Width="30"/>
-                            <Label Grid.Column="2" Content="{Binding PBike}" Width="70"/>
+                            <Label Content="{Binding Id}" Width="40"/>
+                            <Label Grid.Column="2" Content="{Binding PMember}" Width="100"/>
+                            <Label Grid.Column="3" Content="{Binding PBike}" Width="70"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
