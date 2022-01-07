@@ -161,7 +161,7 @@ namespace ProjetWPF.PagesWPF
                     string pbString = textBoxBikes.Text;
                     int.TryParse(pmString, out pMembers);
                     int.TryParse(pbString, out pBikes);
-                    Vehicle v = new Vehicle(pMembers, pBikes, m.Id, idRideChoose);
+                    Vehicle v = new Vehicle(0, pMembers, pBikes, m.Id, idRideChoose);
                     vehicleDAO.Create(v);
                     inscriptionDAO.Create(i);
                     MessageBox.Show("Inscription as driver succès");

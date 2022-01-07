@@ -32,7 +32,25 @@ namespace ProjetWPF.DAO
 
         public override bool Delete(Vehicle obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("update dbo.Vehicle set nbrPlacesmembers = @nbrMember, nbrPlacesBikes = @nbrBike WHERE idVehicle = @id)",
+                        connection);
+                    cmd.Parameters.AddWithValue("id", obj.Id);
+                    cmd.Parameters.AddWithValue("nbrMember", obj.PMember);
+                    cmd.Parameters.AddWithValue("nbrBike", obj.PBike);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return false;
         }
 
         public override Vehicle Find(int id)
@@ -63,10 +81,11 @@ namespace ProjetWPF.DAO
                         {
                             Vehicle vehicle = new Vehicle
                             {
-                                PMember = reader.GetInt32("place"),
-                                PBike = reader.GetInt32("place"),
-                                Ride = reader.GetInt32("place"),
-                                Driver = reader.GetInt32("place")
+                                Id = reader.GetInt32("idVehicle"),
+                                PMember = reader.GetInt32("nbrPlacesmembers"),
+                                PBike = reader.GetInt32("nbrPlacesBikes"),
+                                Ride = reader.GetInt32("idRide"),
+                                Driver = reader.GetInt32("idMember")
                             };
                             listVehicle.Add(vehicle);
                         }
