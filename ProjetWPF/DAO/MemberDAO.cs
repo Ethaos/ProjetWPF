@@ -201,5 +201,10 @@ namespace ProjetWPF.DAO
         {
             return null;
         }
+
+        public override List<Member> FindByMember(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

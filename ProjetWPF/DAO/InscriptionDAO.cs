@@ -98,5 +98,10 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
+
+        public override List<Inscription> FindByMember(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

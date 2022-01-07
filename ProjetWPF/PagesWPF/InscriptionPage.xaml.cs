@@ -30,7 +30,7 @@ namespace ProjetWPF.PagesWPF
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
-            List<Category> listCat = categoryDAO.FindAll();
+            List<Category> listCat = categoryDAO.FindBy(m.Id);
             CatChoise.ItemsSource = listCat;
         }
 
