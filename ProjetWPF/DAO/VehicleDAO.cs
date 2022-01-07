@@ -37,7 +37,7 @@ namespace ProjetWPF.DAO
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("update dbo.Vehicle set nbrPlacesmembers = @nbrMember, nbrPlacesBikes = @nbrBike WHERE idVehicle = @id)",
+                    SqlCommand cmd = new SqlCommand("update dbo.Vehicle set nbrPlacesmembers = @nbrMember, nbrPlacesBikes = @nbrBike WHERE idVehicle = @id",
                         connection);
                     cmd.Parameters.AddWithValue("id", obj.Id);
                     cmd.Parameters.AddWithValue("nbrMember", obj.PMember);
