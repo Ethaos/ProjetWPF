@@ -24,8 +24,9 @@ namespace ProjetWPF.PagesWPF
     public partial class InscriptionPage : Page
     {
         Member m = null;
-        int passenger=0, bike=0;
+        int passenger=0, bike=0,idVehicle,idRide;
         List<Ride> listR = new List<Ride>();
+        List<Vehicle> listV = new List<Vehicle>();
         bool check = false;
         public InscriptionPage(Member member)
         {
@@ -33,7 +34,8 @@ namespace ProjetWPF.PagesWPF
 
             m = member;
             CarOption.Visibility = Visibility.Hidden;
-            //CarChoice.Visibility = Visibility.Hidden;
+            CarChoice.Visibility = Visibility.Hidden;
+            NoCar.Visibility = Visibility.Hidden;
 
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
@@ -60,9 +62,6 @@ namespace ProjetWPF.PagesWPF
             List<Ride> listRide = rideDAO.FindBy(idCategory);
             LbxRides.ItemsSource = listRide;
 
-            
-
-
             if (listRide.Any())
             {
                 listR = listRide; 
@@ -84,18 +83,35 @@ namespace ProjetWPF.PagesWPF
             if (idOrder != -1)
             {
                 Ride r = listR[idOrder];
-                int idRide = r.Num;
+                idRide = r.Num;
                 string id = idRide.ToString();
                 textBoxRide.Text = id;
                 
                 List<Vehicle> listCar = vehicleDAO.FindBy(idRide);
                 LbxCar.ItemsSource = listCar;
+
+                if (listCar.Any())
+                {
+                    listV= listCar;
+                    NoCar.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    NoCar.Visibility = Visibility.Visible;
+                }
+
             }
         }
 
         private void CarChoice_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            int idOrder = LbxCar.SelectedIndex;
+            if (idOrder != -1)
+            {
+                Vehicle v = listV[idOrder];
+                idVehicle = v.Id;
+            }
+            
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
@@ -106,7 +122,7 @@ namespace ProjetWPF.PagesWPF
                 bike = 1;
                 check = true;
                 checkBoxDriver.IsChecked = false;
-                //CarChoice.Visibility = Visibility.Visible;
+                CarChoice.Visibility = Visibility.Visible;
 
             }
             else if(checkBoxPassenger.IsChecked == false){
@@ -114,7 +130,7 @@ namespace ProjetWPF.PagesWPF
                 bike = 0;
                 check = false;
                 checkBoxDriver.IsChecked = true;
-               // CarChoice.Visibility = Visibility.Hidden;
+               CarChoice.Visibility = Visibility.Hidden;
             }
         }
         private void driverChecked(object sender, RoutedEventArgs e)
@@ -166,11 +182,20 @@ namespace ProjetWPF.PagesWPF
                 {
                     Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
 
-                    //ton textbox qui renvoie l'id du vehicule
-                    //Vehicle v = vehicleDAO.Find(id du vehicule récup);
-                    //vehicleDAO.Update(v);
+                    Vehicle v = vehicleDAO.Find(idVehicle);
+
+                    v.PMember--;
+                    v.PBike--;
+                    
+                    
+                    vehicleDAO.Update(v);
+                    
                     inscriptionDAO.Create(i);
+
                     MessageBox.Show("Inscription as passenger succès");
+
+                    Refresh();
+
                 }
             }else if (!check)
             {
@@ -193,6 +218,14 @@ namespace ProjetWPF.PagesWPF
                     MessageBox.Show("Inscription as driver succès");
                 }
             }
+        }
+
+        private void Refresh()
+        {
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Vehicle> vehicleDAO = adf.GetVehicleDAO();
+            List<Vehicle> listCar = vehicleDAO.FindBy(idRide);
+            LbxCar.ItemsSource = listCar;
         }
     }
 }
