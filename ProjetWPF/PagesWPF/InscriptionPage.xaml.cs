@@ -30,21 +30,26 @@ namespace ProjetWPF.PagesWPF
         public InscriptionPage(Member member)
         {
             InitializeComponent();
+
             m = member;
             CarOption.Visibility = Visibility.Hidden;
+            CarChoice.Visibility = Visibility.Hidden;
+
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
+
             List<Category> listCat = categoryDAO.FindBy(m.Id);
-            CatChoise.ItemsSource = listCat;
+            CatChoice.ItemsSource = listCat;
+
         }
 
-        private void CatChoise_SelectionChanged(object sender, RoutedEventArgs e)
+        private void CatChoice_SelectionChanged(object sender, RoutedEventArgs e)
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Ride> rideDAO = adf.GetRideDAO();
             
-            int idCategory = CatChoise.SelectedIndex;
+            int idCategory = CatChoice.SelectedIndex;
             idCategory++;
 
             if (!String.IsNullOrEmpty(textBoxRide.Text))
@@ -54,6 +59,9 @@ namespace ProjetWPF.PagesWPF
 
             List<Ride> listRide = rideDAO.FindBy(idCategory);
             LbxRides.ItemsSource = listRide;
+
+            
+
 
             if (listRide.Any())
             {
@@ -65,9 +73,13 @@ namespace ProjetWPF.PagesWPF
             }
         }
 
-        private void RideChoise_SelectionChanged(object sender, RoutedEventArgs e)
+  
+
+        private void RideChoice_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Vehicle> vehicleDAO = adf.GetVehicleDAO();
+
             int idOrder = LbxRides.SelectedIndex;
             if (idOrder != -1)
             {
@@ -75,7 +87,15 @@ namespace ProjetWPF.PagesWPF
                 int idRide = r.Num;
                 string id = idRide.ToString();
                 textBoxRide.Text = id;
+
+                List<Vehicle> listCar = vehicleDAO.FindBy(idRide);
+                LbxCar.ItemsSource = listCar;
             }
+        }
+
+        private void CarChoice_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
@@ -86,12 +106,15 @@ namespace ProjetWPF.PagesWPF
                 bike = 1;
                 check = true;
                 checkBoxDriver.IsChecked = false;
+                CarChoice.Visibility = Visibility.Visible;
+
             }
             else if(checkBoxPassenger.IsChecked == false){
                 passenger = 0;
                 bike = 0;
                 check = false;
                 checkBoxDriver.IsChecked = true;
+                CarChoice.Visibility = Visibility.Hidden;
             }
         }
         private void driverChecked(object sender, RoutedEventArgs e)
