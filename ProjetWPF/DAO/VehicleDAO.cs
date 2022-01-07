@@ -9,7 +9,7 @@ namespace ProjetWPF.DAO
     {
         public override bool Create(Vehicle obj)
         {
-            //Créer la fonction
+            //Créer la fonction avec cette requete insert into dbo.Vehicle (nbrPlacesMembers, nbrPlacesBikes, idRide, idMember) values(1, 1, 1, 3)
             return false;
         }
 
