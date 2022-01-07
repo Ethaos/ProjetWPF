@@ -166,6 +166,9 @@ namespace ProjetWPF.PagesWPF
                 {
                     Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
 
+                    //ton textbox qui renvoie l'id du vehicule
+                    //Vehicle v = vehicleDAO.Find(id du vehicule récup);
+                    //vehicleDAO.Update(v);
                     inscriptionDAO.Create(i);
                     MessageBox.Show("Inscription as passenger succès");
                 }
