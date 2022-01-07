@@ -30,7 +30,7 @@ namespace ProjetWPF.DAO
             return false;
         }
 
-        public override bool Delete(Vehicle obj)
+        public override bool Update(Vehicle obj)
         {
             try
             {
@@ -53,9 +53,43 @@ namespace ProjetWPF.DAO
             return false;
         }
 
+        public override bool Delete(Vehicle obj)
+        {
+            return false;
+        }
+
         public override Vehicle Find(int id)
         {
-            throw new NotImplementedException();
+            Vehicle vehicle = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Vehicle WHERE idVehicle = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            vehicle = new Vehicle
+                            {
+                                Id = reader.GetInt32("idVehicle"),
+                                PMember = reader.GetInt32("nbrPlacesmembers"),
+                                PBike = reader.GetInt32("nbrPlacesBikes"),
+                                Ride = reader.GetInt32("idRide"),
+                                Driver = reader.GetInt32("idMember")
+                            };
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return vehicle;
         }
 
         public override List<Vehicle> FindAll()
@@ -114,9 +148,6 @@ namespace ProjetWPF.DAO
             throw new NotImplementedException();
         }
 
-        public override bool Update(Vehicle obj)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
