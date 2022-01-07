@@ -93,6 +93,7 @@ namespace ProjetWPF.PagesWPF
             else if (checkBoxDriver.IsChecked == false)
             {
                 CarOption.Visibility = Visibility.Hidden;
+                //test
             }
         }
 
