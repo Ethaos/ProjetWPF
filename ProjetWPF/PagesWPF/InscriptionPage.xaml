@@ -49,11 +49,12 @@
         <CheckBox Checked="passengerChecked" Unchecked="passengerChecked" Name="checkBoxPassenger" Content="Passenger + bike" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top"/>
         <CheckBox Checked="driverChecked" Unchecked="driverChecked" Name="checkBoxDriver" Content="Driver + bike" HorizontalAlignment="Left" Margin="52,328,0,0" VerticalAlignment="Top"/>
 
-        <Grid x:Name="CarOption" Margin="0,0,493,56">
-            <TextBlock HorizontalAlignment="Left" Margin="159,327,0,0" Text="Seat available" VerticalAlignment="Top" />
-            <TextBox Name="textBoxBikes" HorizontalAlignment="Left" Margin="246,327,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
-            <TextBlock HorizontalAlignment="Left" Margin="160,346,0,0" Text="Bikes place" VerticalAlignment="Top"/>
-            <TextBox Name="textBoxMembers" HorizontalAlignment="Left" Margin="246,346,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
+
+        <Grid x:Name="CarOption" Margin="153,329,497,68">
+            <TextBlock HorizontalAlignment="Left" Text="Seat available" VerticalAlignment="Top" Margin="3,-1,0,0" />
+            <TextBox Name="textBoxBikes" HorizontalAlignment="Left" Margin="85,25,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
+            <TextBlock HorizontalAlignment="Left"  Text="Bikes place" VerticalAlignment="Top" Margin="3,23,0,0"/>
+            <TextBox Name="textBoxMembers" HorizontalAlignment="Left" Margin="84,1,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
         </Grid>
 
         <ListBox x:Name="Lbx" Margin="43,149,476,201" SelectionChanged="RideChoise_SelectionChanged">
