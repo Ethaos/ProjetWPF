@@ -30,6 +30,7 @@ namespace ProjetWPF.PagesWPF
         {
             InitializeComponent();
             m = member;
+            CarOption.Visibility = Visibility.Hidden;
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
@@ -61,15 +62,27 @@ namespace ProjetWPF.PagesWPF
 
         private void passengerChecked(object sender, RoutedEventArgs e)
         {
-            passenger = 1;
-            bike = 1;
-            check = true;
+            if(checkBoxPassenger.IsChecked == true)
+            {
+                passenger = 1;
+                bike = 1;
+                check = true;
+            }
+            
         }
         private void driverChecked(object sender, RoutedEventArgs e)
         {
-            passenger = 0;
-            bike = 0;
-            check = false;
+            if (checkBoxDriver.IsChecked==true)
+            {
+                passenger = 0;
+                bike = 0;
+                check = false;
+                CarOption.Visibility = Visibility.Visible;
+            }
+            else if (checkBoxDriver.IsChecked == false)
+            {
+                CarOption.Visibility = Visibility.Hidden;
+            }
         }
 
         private void RegisterClick(object sender, RoutedEventArgs e)
