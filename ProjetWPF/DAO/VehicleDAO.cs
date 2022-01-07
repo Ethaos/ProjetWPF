@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -46,7 +47,37 @@ namespace ProjetWPF.DAO
 
         public override List<Vehicle> FindBy(int id)
         {
-            throw new NotImplementedException();
+            List<Vehicle> listVehicle = new List<Vehicle>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Vehicle WHERE idRide = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Vehicle vehicle = new Vehicle
+                            {
+                                PMember = reader.GetInt32("place"),
+                                PBike = reader.GetInt32("place"),
+                                Ride = reader.GetInt32("place"),
+                                Driver = reader.GetInt32("place")
+                            };
+                            listVehicle.Add(vehicle);
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return listVehicle;
         }
 
         public override List<Vehicle> FindByMember(int id)

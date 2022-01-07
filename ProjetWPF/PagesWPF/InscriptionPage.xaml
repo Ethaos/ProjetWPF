@@ -49,13 +49,34 @@
         <CheckBox Checked="passengerChecked" Unchecked="passengerChecked" Name="checkBoxPassenger" Content="Passenger + bike" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top"/>
         <CheckBox Checked="driverChecked" Unchecked="driverChecked" Name="checkBoxDriver" Content="Driver + bike" HorizontalAlignment="Left" Margin="52,328,0,0" VerticalAlignment="Top"/>
 
-
         <Grid x:Name="CarOption" Margin="0,0,493,56">
             <TextBlock HorizontalAlignment="Left" Margin="159,327,0,0" Text="Seat available" VerticalAlignment="Top" />
             <TextBox Name="textBoxBikes" HorizontalAlignment="Left" Margin="246,327,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
             <TextBlock HorizontalAlignment="Left" Margin="160,346,0,0" Text="Bikes place" VerticalAlignment="Top"/>
             <TextBox Name="textBoxMembers" HorizontalAlignment="Left" Margin="246,346,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
         </Grid>
+
+        <ListBox x:Name="Lbx" Margin="43,149,476,201" SelectionChanged="RideChoise_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Num}" Width="30"/>
+                        <Label Grid.Column="2" Content="{Binding PlaceDeparture}" Width="70"/>
+                        <Label Grid.Column="3" Content="{Binding DateDeparture}" Width="70"/>
+                        <Label Grid.Column="4" Content="{Binding PackageFee}" Width="30"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <Button Content="Register" HorizontalAlignment="Left" Margin="52,403,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
     </Grid>
 </Page>
