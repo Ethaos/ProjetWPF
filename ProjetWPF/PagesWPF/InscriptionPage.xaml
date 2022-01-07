@@ -1,0 +1,54 @@
+﻿<Page x:Class="ProjetWPF.PagesWPF.InscriptionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetWPF.PagesWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InscriptionPage">
+
+    <Grid>
+        <Label Content="Inscription" Margin="43,10,613,393" FontSize="24"/>
+        <Label Content="Choose the category" Margin="39,99,541,307" FontSize="18"/>
+        <ComboBox x:Name="CatChoise" Margin="216,104,492,312" SelectedIndex="0" SelectionChanged="CatChoise_SelectionChanged" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding NameUnderCategory}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Grid Margin="52,128,483,288">
+            <Label Content="Num" Margin="-7,0,163,0"/>
+            <Label Content="Place" Margin="33,0,-34,0"/>
+            <Label Content="Date" Margin="98,0,19,0"/>
+            <Label Content="Fee" Margin="166,0,-166,0"/>
+        </Grid>
+        <ListBox x:Name="LbxRides" Margin="43,149,476,201" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Num}" Width="30"/>
+                        <Label Grid.Column="2" Content="{Binding PlaceDeparture}" Width="70"/>
+                        <Label Grid.Column="3" Content="{Binding DateDeparture}" Width="70"/>
+                        <Label Grid.Column="4" Content="{Binding PackageFee}" Width="30"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock HorizontalAlignment="Left" Margin="45,270,0,0" Text="Ride chosen" VerticalAlignment="Top" FontSize="18"/>
+        <TextBox Name="textBoxRide" HorizontalAlignment="Left" Margin="158,272,0,0" VerticalAlignment="Top" Width="51" Height="22"/>
+        <CheckBox Checked="passengerChecked" Unchecked="passengerUnchecked" Name="checkBoxPassenger" Content="Passenger" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top"/>
+        <CheckBox Checked="bikesChecked" Unchecked="bikesUnchecked" Name="checkBoxBikes" Content="Bikes" HorizontalAlignment="Left" Margin="52,328,0,0" VerticalAlignment="Top"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="54,364,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
+
+    </Grid>
+</Page>

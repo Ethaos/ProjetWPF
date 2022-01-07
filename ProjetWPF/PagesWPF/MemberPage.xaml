@@ -28,7 +28,7 @@
         <Label Content="Categories" HorizontalAlignment="Left" Margin="54,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
 
 
-        <ComboBox x:Name="CatChoise" Margin="59,291,657,125" SelectedIndex="0" SelectionChanged="CatChoise_SelectionChanged" >
+        <ComboBox x:Name="CatChoise" Margin="59,291,652,125" SelectedIndex="0" SelectionChanged="CatChoise_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding NameUnderCategory}"/>
@@ -36,32 +36,12 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-
-        <!--<ListBox x:Name="LbxDisplayCategories" Margin="478,100,182,206">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Content="{Binding Num}" Width="30"/>
-                        <Label Grid.Column="2" Content="{Binding NameUnderCategory}" Width="70"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Label Content="Add category" HorizontalAlignment="Left" Margin="473,55,0,0" VerticalAlignment="Top" Height="45" Width="174" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="478,257,0,0" VerticalAlignment="Top" Width="53" Name="textboxAddCategory" Height="25"/>
-        -->
-
-        <Button Content="Add" HorizontalAlignment="Left" Margin="153,290,0,0" VerticalAlignment="Top" Height="34" Width="81" Click="AddCatClick"/>
-        <Label Content="Bikes" HorizontalAlignment="Left" Margin="462,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
-        <Label Content="Weight" Margin="468,98,259,316"/>
-        <Label Content="Type" Margin="520,98,230,316"/>
-        <Label Content="Length" Margin="567,98,163,316"/>
-        <ListBox x:Name="LbxBikes"  Margin="470,126,175,180" >
+        <Button Content="Add" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Height="34" Width="51" Click="AddCatClick"/>
+        <Label Content="Your bikes" HorizontalAlignment="Left" Margin="261,60,0,0" VerticalAlignment="Top" Height="45" Width="176" FontSize="24"/>
+        <Label Content="Weight" Margin="267,98,459,316"/>
+        <Label Content="Type" Margin="319,98,431,316"/>
+        <Label Content="Length" Margin="367,98,363,316"/>
+        <ListBox x:Name="LbxBikes"  Margin="269,126,375,180" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

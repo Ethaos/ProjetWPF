@@ -60,6 +60,13 @@ namespace ProjetWPF.DAO
                         }
                     }
                 }
+                if (listBike.Count != 0)
+                {
+                    MemberDAO memberDAO = new MemberDAO();
+                    Member m = memberDAO.Find(id);
+
+                    m.LBike = listBike;
+                }
             }
             catch (SqlException)
             {

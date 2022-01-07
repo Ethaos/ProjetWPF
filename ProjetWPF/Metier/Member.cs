@@ -30,7 +30,13 @@ namespace ProjetWPF.Metier
         {
             get { return lcat; }
             set { lcat = value; }
-        }    
+        }
+
+        internal List<Bike> LBike
+        {
+            get { return lbike; }
+            set { lbike = value; }
+        }
 
         public void calculbalance()
         {

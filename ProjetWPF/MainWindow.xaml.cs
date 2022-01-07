@@ -1,7 +1,7 @@
 ﻿using ProjetWPF.DAO;
 using ProjetWPF.Factory;
 using ProjetWPF.Metier;
-
+using ProjetWPF.PagesWPF;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,10 +26,13 @@ namespace ProjetWPF
     public partial class MainWindow : Window
     {
         bool check;
+        Member m = null;
         public MainWindow()
         {
             InitializeComponent();
             Disconnect.Visibility = Visibility.Hidden;
+            Inscription.Visibility = Visibility.Hidden;
+            Back.Visibility = Visibility.Hidden;
         }
 
         private void loginClick(object sender, RoutedEventArgs e)
@@ -48,12 +51,14 @@ namespace ProjetWPF
                 }
                 else
                 {
+                    m = member;
                     Main.Content = null;
                     Main.Content = new MemberPage(member);
                     LoginGrid.Visibility = Visibility.Hidden;
                     boxLogin.Text = String.Empty;
                     boxPassword.Password = String.Empty;
                     Disconnect.Visibility = Visibility.Visible;
+                    Inscription.Visibility = Visibility.Visible;
                 }
             }
             else if (check == true)
@@ -76,13 +81,30 @@ namespace ProjetWPF
             }
         }
 
-        
+        private void BackClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = null;
+            Main.Content = new MemberPage(m);
+            Disconnect.Visibility = Visibility.Visible;
+            Inscription.Visibility = Visibility.Visible;
+            Back.Visibility = Visibility.Hidden;
+        }
+
+        private void InscriptionClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = null;
+            Main.Content = new InscriptionPage(m);
+            Disconnect.Visibility = Visibility.Hidden;
+            Inscription.Visibility = Visibility.Hidden;
+            Back.Visibility = Visibility.Visible;
+        }
 
         private void disconnectClick(object sender, RoutedEventArgs e)
         {
             Main.Content = null;
             LoginGrid.Visibility = Visibility.Visible;
             Disconnect.Visibility = Visibility.Hidden;
+            Inscription.Visibility = Visibility.Hidden;
         }
 
         private void Choice_SelectionChanged(object sender, RoutedEventArgs e)

@@ -84,7 +84,6 @@ namespace ProjetWPF
             Trace.WriteLine(date);*/
 
             Ride ride = new Ride(place, date, packageFee, resp.Category);
-
             
             rideDao.Create(ride);
             Refresh();

@@ -46,7 +46,6 @@ namespace ProjetWPF
             CatChoise.ItemsSource = listCat;
 
             listCategoryAll = listCat;
-
         }
 
         private void Refresh()
@@ -58,13 +57,10 @@ namespace ProjetWPF
         }
         private void CatChoise_SelectionChanged(object sender, RoutedEventArgs e)
         {
-           
             int cbo = CatChoise.SelectedIndex;
             idCategory = cbo + 1;
-            
-
         }
-            private void AddCatClick(object sender, RoutedEventArgs e)
+        private void AddCatClick(object sender, RoutedEventArgs e)
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
@@ -95,10 +91,6 @@ namespace ProjetWPF
                 listCategory.Add(categoryDAO.Find(idCategory));
                 Refresh();
             }
-            
-            
         }
-
-
     }
 }
