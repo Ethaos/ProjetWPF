@@ -19,6 +19,7 @@ namespace ProjetWPF.Factory
         public abstract DAO<Ride> GetRideDAO();
         public abstract DAO<Bike> GetBikeDAO();
         public abstract DAO<Inscription> GetInscriptionDAO();
+        public abstract DAO<Vehicle> GetVehicleDAO();
 
         /*
         public abstract DAO<Professeur> GetProfesseurDAO();

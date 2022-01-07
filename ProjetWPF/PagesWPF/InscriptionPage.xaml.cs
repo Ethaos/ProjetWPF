@@ -76,6 +76,7 @@ namespace ProjetWPF.PagesWPF
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Inscription> inscriptionDAO = adf.GetInscriptionDAO();
+            DAO<Vehicle> vehicleDAO = adf.GetVehicleDAO();
 
             List<Inscription> listInscription = inscriptionDAO.FindBy(m.Id);
             bool inside = false;

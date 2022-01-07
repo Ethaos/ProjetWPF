@@ -38,6 +38,11 @@ namespace ProjetWPF.Factory
             return new InscriptionDAO();
         }
 
+        public override DAO<Vehicle> GetVehicleDAO()
+        {
+            return new VehicleDAO();
+        }
+
         /*
         public override DAO<Category> GetCategoryDAO()
         {
