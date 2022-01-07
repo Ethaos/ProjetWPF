@@ -52,36 +52,21 @@ namespace ProjetWPF
             LbxRides.ItemsSource = listRide;
         }
 
+        
         private void AddRide(object sender, RoutedEventArgs e)
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Ride> rideDao = adf.GetRideDAO();
-            CultureInfo provider = CultureInfo.InvariantCulture;
-
-            double packageFee;
-            DateTime date = (DateTime)calendar.SelectedDate;
             
+            double packageFee;
 
 
             string place = textBoxPlace.Text;
             string packageString = textBoxFee.Text;
-            string dateString = textboxDate.Text;
+            string date = textboxDate.Text;
 
-            date.ToString("s");
 
             double.TryParse(packageString, out packageFee);
-
-
-
-            
-
-            /*
-             DateTime parsedDate = DateTime.ParseExact(dateString, "MM/dd/yyyy",
-                                          CultureInfo.InvariantCulture);
-            System.TimeZoneInfo.ConvertTimeToUtc(date,myTZ);
-            String format = "yyyy-MM-dd";
-            System.TimeZoneInfo.ConvertTimeToUtc(date);
-            Trace.WriteLine(date);*/
 
             Ride ride = new Ride(place, date, packageFee, resp.Category);
             

@@ -100,7 +100,7 @@ namespace ProjetWPF.DAO
                             {
                                 Num = reader.GetInt32("num"),
                                 PlaceDeparture = reader.GetString("placeDeparture"),
-                                DateDeparture = reader.GetDateTime("dateDeparture"),
+                                DateDeparture = reader.GetString("dateDeparture"),
                                 PackageFee = reader.GetDouble("packageFee"),
                                 IdCategory = reader.GetInt32("idCategory")
                             };
