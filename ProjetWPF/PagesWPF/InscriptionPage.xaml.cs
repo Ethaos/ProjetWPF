@@ -42,7 +42,7 @@ namespace ProjetWPF.PagesWPF
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Ride> rideDAO = adf.GetRideDAO();
-
+           
             int idCategory = CatChoise.SelectedIndex;
             idCategory++;
             
@@ -53,11 +53,16 @@ namespace ProjetWPF.PagesWPF
 
         private void RideChoise_SelectionChanged(object sender, RoutedEventArgs e)
         {
+
             int idOrder = LbxRides.SelectedIndex;
             Ride r = listR[idOrder];
             int idRide = r.Num;
             string id = idRide.ToString();
             textBoxRide.Text = id;
+            
+            
+            
+        
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
@@ -67,6 +72,11 @@ namespace ProjetWPF.PagesWPF
                 passenger = 1;
                 bike = 1;
                 check = true;
+                checkBoxDriver.IsChecked = false;
+            }
+            else if(checkBoxPassenger.IsChecked == false){
+
+
             }
             
         }
@@ -78,6 +88,7 @@ namespace ProjetWPF.PagesWPF
                 bike = 0;
                 check = false;
                 CarOption.Visibility = Visibility.Visible;
+                checkBoxPassenger.IsChecked = false;
             }
             else if (checkBoxDriver.IsChecked == false)
             {
