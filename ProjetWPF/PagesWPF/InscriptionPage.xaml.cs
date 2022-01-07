@@ -4,6 +4,7 @@ using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,24 +46,40 @@ namespace ProjetWPF.PagesWPF
            
             int idCategory = CatChoise.SelectedIndex;
             idCategory++;
-            
+
+            if (!String.IsNullOrEmpty(textBoxRide.Text))
+            {
+                textBoxRide.Clear();
+                
+                
+            }
+
             List<Ride> listRide = rideDAO.FindBy(idCategory);
             LbxRides.ItemsSource = listRide;
-            listR = listRide;
+
+            if (listRide.Any())
+            {
+                listR = listRide; 
+            }
+            else
+            {
+                MessageBox.Show("Any Ride for this category");
+            }
+            
+           
         }
 
         private void RideChoise_SelectionChanged(object sender, RoutedEventArgs e)
         {
+                int idOrder = LbxRides.SelectedIndex;
+                
+                Ride r = listR[idOrder];
+                int idRide = r.Num;
+                string id = idRide.ToString();
+                textBoxRide.Text = id;
+                
+           
 
-            int idOrder = LbxRides.SelectedIndex;
-            Ride r = listR[idOrder];
-            int idRide = r.Num;
-            string id = idRide.ToString();
-            textBoxRide.Text = id;
-            
-            
-            
-        
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
@@ -93,7 +110,7 @@ namespace ProjetWPF.PagesWPF
             else if (checkBoxDriver.IsChecked == false)
             {
                 CarOption.Visibility = Visibility.Hidden;
-                //test
+                
             }
         }
 
