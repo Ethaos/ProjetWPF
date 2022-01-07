@@ -1,15 +1,31 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 
 namespace ProjetWPF.DAO
 {
     internal class VehicleDAO : DAO<Vehicle>
     {
-        public override bool Create(Vehicle obj)
+        public override bool Create(Vehicle v)
         {
-            //Créer la fonction avec cette requete insert into dbo.Vehicle (nbrPlacesMembers, nbrPlacesBikes, idRide, idMember) values(1, 1, 1, 3)
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("insert into dbo.Vehicle (nbrPlacesMembers, nbrPlacesBikes, idRide, idMember) " +
+                        "values('" + v.PMember + "' , '" + v.PBike + "' , '" + v.Ride + "' , '" + v.Driver + "')",
+                        connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
             return false;
         }
 
