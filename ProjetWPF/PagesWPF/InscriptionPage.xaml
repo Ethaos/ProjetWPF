@@ -11,7 +11,7 @@
     <Grid>
         <Label Content="Inscription" Margin="43,10,613,393" FontSize="24"/>
         <Label Content="Choose the category" Margin="39,99,541,307" FontSize="18"/>
-        <ComboBox x:Name="CatChoise" Margin="216,104,492,312" SelectedIndex="0" SelectionChanged="CatChoise_SelectionChanged" >
+        <ComboBox x:Name="CatChoice" Margin="216,104,492,312" SelectedIndex="0" SelectionChanged="CatChoice_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding NameUnderCategory}"/>
@@ -24,7 +24,7 @@
             <Label Content="Date" Margin="98,0,19,0"/>
             <Label Content="Fee" Margin="166,0,-166,0"/>
         </Grid>
-        <ListBox x:Name="LbxRides" Margin="43,149,476,201" SelectionChanged="RideChoise_SelectionChanged">
+        <ListBox x:Name="LbxRides" Margin="43,149,476,201" SelectionChanged="RideChoice_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -56,8 +56,9 @@
             <TextBlock HorizontalAlignment="Left"  Text="Bikes place" VerticalAlignment="Top" Margin="3,23,0,0"/>
             <TextBox Name="textBoxMembers" HorizontalAlignment="Left" Margin="84,1,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
         </Grid>
-
-        <ListBox x:Name="Lbx" Margin="43,149,476,201" SelectionChanged="RideChoise_SelectionChanged">
+        
+        <Grid x:Name="CarChoice">
+        <ListBox x:Name="LbxCar" Margin="439,47,76,135" SelectionChanged="CarChoice_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -65,18 +66,17 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-
+                        
                         <Label Content="{Binding Num}" Width="30"/>
-                        <Label Grid.Column="2" Content="{Binding PlaceDeparture}" Width="70"/>
-                        <Label Grid.Column="3" Content="{Binding DateDeparture}" Width="70"/>
-                        <Label Grid.Column="4" Content="{Binding PackageFee}" Width="30"/>
+                        <Label Grid.Column="2" Content="{Binding nbrPlacesMembers}" Width="70"/>
+                        <Label Grid.Column="3" Content="{Binding nbrPlacesBikes}" Width="70"/>
+             
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        </Grid>
 
         <Button Content="Register" HorizontalAlignment="Left" Margin="52,403,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
     </Grid>
