@@ -25,6 +25,7 @@ namespace ProjetWPF.PagesWPF
         Member m = null;
         int passenger=0, bike=0;
         List<Ride> listR = new List<Ride>();
+        bool check = false;
         public InscriptionPage(Member member)
         {
             InitializeComponent();
@@ -56,28 +57,20 @@ namespace ProjetWPF.PagesWPF
             int idRide = r.Num;
             string id = idRide.ToString();
             textBoxRide.Text = id;
-
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
         {
             passenger = 1;
             bike = 1;
+            check = true;
         }
-        private void passengerUnchecked(object sender, RoutedEventArgs e)
+        private void driverChecked(object sender, RoutedEventArgs e)
         {
             passenger = 0;
             bike = 0;
+            check = false;
         }
-
-        private void driverChecked(object sender, RoutedEventArgs e)
-        {
-        }
-        private void driverUnchecked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
 
         private void RegisterClick(object sender, RoutedEventArgs e)
         {
@@ -97,17 +90,42 @@ namespace ProjetWPF.PagesWPF
                     inside = true;
                 }
             }
-
-            if (inside)
+            if(check)
             {
-                MessageBox.Show("You are already registered to this ride.");
-            }
-            else
-            {
-                Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
+                if (inside)
+                {
+                    MessageBox.Show("You are already registered to this ride.");
+                }
+                else
+                {
+                    Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
 
-                inscriptionDAO.Create(i);
-                MessageBox.Show("Inscription succès");
+                    inscriptionDAO.Create(i);
+                    MessageBox.Show("Inscription succès");
+                }
+            }else if (!check)
+            {
+                if (inside)
+                {
+                    MessageBox.Show("You are already registered to this ride.");
+                }
+                else
+                {
+                    Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
+
+                    int pMembers, pBikes;
+                    string pmString = textBoxMembers.Text;
+                    string pbString = textBoxBikes.Text;
+                    int.TryParse(pmString, out pMembers);
+                    int.TryParse(pbString, out pBikes);
+
+                    inscriptionDAO.Create(i);
+                    MessageBox.Show("Inscription succès");
+                    //ici on met le create du vehicule genre
+                    //Vehicle v = new Vehicle(pMembers, pBikes, m.Id, idRideChoose);
+                    //vehicleDAO.create(v); en comm parce que j'ai pas encore crée la fonction create.
+
+                }
             }
         }
     }
