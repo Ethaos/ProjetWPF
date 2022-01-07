@@ -25,7 +25,7 @@
 
         <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
         <Button Name="Disconnect" Click="disconnectClick" Content="Disconnect" HorizontalAlignment="Left" Margin="682,10,0,0" VerticalAlignment="Top" Height="25" Width="86"/>
-        <Button Name="Inscription" Content="Inscription" HorizontalAlignment="Left" Margin="602,359,0,0" VerticalAlignment="Top" Height="54" Width="120" FontSize="22" Click="InscriptionClick"/>
-        <Button Name="Back" Content="Back" HorizontalAlignment="Left" Margin="602,359,0,0" VerticalAlignment="Top" Height="54" Width="120" FontSize="22" Click="BackClick"/>
+        <Button Name="Inscription" Content="Inscription" HorizontalAlignment="Left" Margin="633,395,0,0" VerticalAlignment="Top" Height="32" Width="123" FontSize="22" Click="InscriptionClick"/>
+        <Button Name="Back" Content="Back" HorizontalAlignment="Left" Margin="694,10,0,0" VerticalAlignment="Top" Height="25" Width="62" FontSize="18" Click="BackClick"/>
     </Grid>
 </Window>

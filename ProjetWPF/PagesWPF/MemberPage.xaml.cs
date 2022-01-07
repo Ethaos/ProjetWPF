@@ -57,11 +57,8 @@ namespace ProjetWPF
         }
         private void CatChoise_SelectionChanged(object sender, RoutedEventArgs e)
         {
-           
             int cbo = CatChoise.SelectedIndex;
             idCategory = cbo + 1;
-            
-
         }
         private void AddCatClick(object sender, RoutedEventArgs e)
         {

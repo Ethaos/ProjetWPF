@@ -1,6 +1,7 @@
 ﻿using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -9,13 +10,26 @@ namespace ProjetWPF.DAO
     internal class InscriptionDAO : DAO<Inscription>
     {
         public InscriptionDAO() { }
-        public override bool Add(int a, int b)
-        {
-            return false;
-        }
 
-        public override bool Create(Inscription obj)
+        public override bool Create(Inscription i)
         {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT into dbo.Inscription " +
+                        "(passenger, bike, idRide, idMember) " +
+                        "values('" + i.Passenger + "' , '" + i.Bikes + "'  , '" + i.Ride + "', '" + i.Member + "' )",
+                        connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
             return false;
         }
 
@@ -36,30 +50,44 @@ namespace ProjetWPF.DAO
 
         public override List<Inscription> FindBy(int id)
         {
-            return null;
-        }
+            List<Inscription> listInscription = new List<Inscription>();
 
-        public override bool Inscription(Inscription i)
-        {
             try
             {
                 using (SqlConnection connection = new SqlConnection(this.connectionString))
                 {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Inscription WHERE idMember = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT into dbo.infoCatMember " +
-                        "(passenger, bike, idRide, idMember) " +
-                        "values('" + i.Passenger + "' , '" + i.Bikes + "'  , '" + i.Ride + "', '" + i.Member + "' )",
-                        connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Inscription inscription = new Inscription
+                            {
+                                Member = reader.GetInt32("idMember"),
+                                Ride = reader.GetInt32("idRide"),
+                                Passenger = reader.GetInt32("passenger"),
+                                Bikes = reader.GetInt32("bike")
+                            };
+                            listInscription.Add(inscription);
+                        }
+                    }
                 }
             }
             catch (SqlException)
             {
                 throw new Exception("Une erreur sql s'est produite!");
             }
+            return listInscription;
+        }
+
+        public override bool Add(int a, int b)
+        {
             return false;
         }
+
 
         public override Inscription LoginCheck(string a, string b)
         {

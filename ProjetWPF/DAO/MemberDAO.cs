@@ -201,10 +201,5 @@ namespace ProjetWPF.DAO
         {
             return null;
         }
-
-        public override bool Inscription(Member m)
-        {
-            return false;
-        }
     }
 }

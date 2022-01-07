@@ -83,10 +83,5 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
-
-        public override bool Inscription(Bike obj)
-        {
-            return false;
-        }
     }
 }

@@ -104,6 +104,7 @@ namespace ProjetWPF
             Main.Content = null;
             LoginGrid.Visibility = Visibility.Visible;
             Disconnect.Visibility = Visibility.Hidden;
+            Inscription.Visibility = Visibility.Hidden;
         }
 
         private void Choice_SelectionChanged(object sender, RoutedEventArgs e)
