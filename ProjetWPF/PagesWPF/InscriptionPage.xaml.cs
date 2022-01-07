@@ -26,6 +26,7 @@ namespace ProjetWPF.PagesWPF
         Member m = null;
         int passenger=0, bike=0;
         List<Ride> listR = new List<Ride>();
+        List<Vehicle> listV = new List<Vehicle>();
         bool check = false;
         public InscriptionPage(Member member)
         {
@@ -90,12 +91,26 @@ namespace ProjetWPF.PagesWPF
                 
                 List<Vehicle> listCar = vehicleDAO.FindBy(idRide);
                 LbxCar.ItemsSource = listCar;
+
+                if (listCar.Any())
+                {
+                    listV= listCar;
+                }
+                else
+                {
+                    MessageBox.Show("Still no vehicle for this ride");
+                }
             }
         }
 
         private void CarChoice_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            int idOrder = LbxCar.SelectedIndex;
+            if (idOrder != -1)
+            {
+                Vehicle v = listV[idOrder];
+                int idVehicle = v.Id;
+            }
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
@@ -167,6 +182,7 @@ namespace ProjetWPF.PagesWPF
                     Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
 
                     inscriptionDAO.Create(i);
+
                     MessageBox.Show("Inscription as passenger succès");
                 }
             }else if (!check)
