@@ -43,15 +43,13 @@ namespace ProjetWPF.PagesWPF
         {
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Ride> rideDAO = adf.GetRideDAO();
-           
+            
             int idCategory = CatChoise.SelectedIndex;
             idCategory++;
 
             if (!String.IsNullOrEmpty(textBoxRide.Text))
             {
                 textBoxRide.Clear();
-                
-                
             }
 
             List<Ride> listRide = rideDAO.FindBy(idCategory);
@@ -65,21 +63,19 @@ namespace ProjetWPF.PagesWPF
             {
                 MessageBox.Show("Any Ride for this category");
             }
-            
-           
         }
 
         private void RideChoise_SelectionChanged(object sender, RoutedEventArgs e)
         {
-                int idOrder = LbxRides.SelectedIndex;
-                
+            
+            int idOrder = LbxRides.SelectedIndex;
+            if (idOrder != -1)
+            {
                 Ride r = listR[idOrder];
                 int idRide = r.Num;
                 string id = idRide.ToString();
                 textBoxRide.Text = id;
-                
-           
-
+            }
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
