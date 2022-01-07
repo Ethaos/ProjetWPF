@@ -57,26 +57,24 @@
             <TextBox Name="textBoxMembers" HorizontalAlignment="Left" Margin="84,1,0,0" VerticalAlignment="Top" Width="39" Height="16"/>
         </Grid>
         
-        <Grid x:Name="CarChoice">
+        <!--<Grid x:Name="CarChoice">-->
         <ListBox x:Name="LbxCar" Margin="439,47,76,135" SelectionChanged="CarChoice_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-
-                        <Label Content="{Binding Num}" Width="30"/>
-                        <Label Grid.Column="2" Content="{Binding PlaceDeparture}" Width="70"/>
-                        <Label Grid.Column="3" Content="{Binding DateDeparture}" Width="70"/>
-                        <Label Grid.Column="4" Content="{Binding PackageFee}" Width="30"/>
-                    </Grid>
+                        
+                            <Label Content="{Binding PMember}" Width="30"/>
+                            <Label Grid.Column="2" Content="{Binding PBike}" Width="70"/>
+                        </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        </Grid>
+        <!--</Grid>-->
 
         <Button Content="Register" HorizontalAlignment="Left" Margin="52,403,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
     </Grid>

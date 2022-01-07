@@ -33,7 +33,7 @@ namespace ProjetWPF.PagesWPF
 
             m = member;
             CarOption.Visibility = Visibility.Hidden;
-            CarChoice.Visibility = Visibility.Hidden;
+            //CarChoice.Visibility = Visibility.Hidden;
 
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
@@ -87,7 +87,7 @@ namespace ProjetWPF.PagesWPF
                 int idRide = r.Num;
                 string id = idRide.ToString();
                 textBoxRide.Text = id;
-
+                
                 List<Vehicle> listCar = vehicleDAO.FindBy(idRide);
                 LbxCar.ItemsSource = listCar;
             }
@@ -106,7 +106,7 @@ namespace ProjetWPF.PagesWPF
                 bike = 1;
                 check = true;
                 checkBoxDriver.IsChecked = false;
-                CarChoice.Visibility = Visibility.Visible;
+                //CarChoice.Visibility = Visibility.Visible;
 
             }
             else if(checkBoxPassenger.IsChecked == false){
@@ -114,7 +114,7 @@ namespace ProjetWPF.PagesWPF
                 bike = 0;
                 check = false;
                 checkBoxDriver.IsChecked = true;
-                CarChoice.Visibility = Visibility.Hidden;
+               // CarChoice.Visibility = Visibility.Hidden;
             }
         }
         private void driverChecked(object sender, RoutedEventArgs e)
