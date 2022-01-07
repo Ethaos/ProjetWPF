@@ -58,7 +58,7 @@
         </Grid>
 
 
-        <Label x:Name="NoCar" Content="You can't register for the moment, no driver available" Margin="441,48,76,159"/>
+        <Label x:Name="NoCar" Content="You can't register for the moment, no driver available" Margin="429,79,56,333" Foreground="#FFFF0202" Background="{x:Null}"/>
         <Grid x:Name="CarChoice">
             <Grid Margin="453,127,82,289">
                 <Label Content="Num" Margin="-7,0,163,0"/>

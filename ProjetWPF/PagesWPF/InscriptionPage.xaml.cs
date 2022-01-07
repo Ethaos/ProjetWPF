@@ -31,11 +31,13 @@ namespace ProjetWPF.PagesWPF
         public InscriptionPage(Member member)
         {
             InitializeComponent();
-
+            checkBoxPassenger.IsChecked = true;
             m = member;
             CarOption.Visibility = Visibility.Hidden;
-            CarChoice.Visibility = Visibility.Hidden;
+            CarChoice.Visibility = Visibility.Visible;
             NoCar.Visibility = Visibility.Hidden;
+
+
 
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
@@ -150,7 +152,9 @@ namespace ProjetWPF.PagesWPF
                 bike = 0;
                 check = false;
                 CarOption.Visibility = Visibility.Visible;
+                NoCar.Visibility = Visibility.Hidden;   
                 checkBoxPassenger.IsChecked = false;
+                
             }
             else if (checkBoxDriver.IsChecked == false)
             {
