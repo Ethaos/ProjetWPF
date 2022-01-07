@@ -45,7 +45,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock HorizontalAlignment="Left" Margin="45,270,0,0" Text="Ride chosen" VerticalAlignment="Top" FontSize="18"/>
-        <TextBox Name="textBoxRide" HorizontalAlignment="Left" Margin="158,272,0,0" VerticalAlignment="Top" Width="51" Height="22" Text=""/>
+        <TextBox Name="textBoxRide" HorizontalAlignment="Left" Margin="158,272,0,0" VerticalAlignment="Top" Width="51" Height="22" Text="" IsReadOnly="True"/>
         <CheckBox Checked="passengerChecked" Unchecked="passengerUnchecked" Name="checkBoxPassenger" Content="Passenger" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top"/>
         <CheckBox Checked="bikesChecked" Unchecked="bikesUnchecked" Name="checkBoxBikes" Content="Bikes" HorizontalAlignment="Left" Margin="52,328,0,0" VerticalAlignment="Top"/>
         <Button Content="Register" HorizontalAlignment="Left" Margin="54,364,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
