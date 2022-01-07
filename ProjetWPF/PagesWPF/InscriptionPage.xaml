@@ -50,5 +50,6 @@
         <CheckBox Checked="bikesChecked" Unchecked="bikesUnchecked" Name="checkBoxBikes" Content="Bikes" HorizontalAlignment="Left" Margin="52,328,0,0" VerticalAlignment="Top"/>
         <Button Content="Register" HorizontalAlignment="Left" Margin="54,364,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
 
+        <Button Content="Register" HorizontalAlignment="Left" Margin="52,403,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
     </Grid>
 </Page>
