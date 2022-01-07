@@ -92,10 +92,11 @@ namespace ProjetWPF.PagesWPF
                 checkBoxDriver.IsChecked = false;
             }
             else if(checkBoxPassenger.IsChecked == false){
-
-
+                passenger = 0;
+                bike = 0;
+                check = false;
+                checkBoxDriver.IsChecked = true;
             }
-            
         }
         private void driverChecked(object sender, RoutedEventArgs e)
         {
@@ -109,8 +110,11 @@ namespace ProjetWPF.PagesWPF
             }
             else if (checkBoxDriver.IsChecked == false)
             {
+                passenger = 1;
+                bike = 1;
+                check = true;
                 CarOption.Visibility = Visibility.Hidden;
-                
+                checkBoxPassenger.IsChecked = true;
             }
         }
 
@@ -144,7 +148,7 @@ namespace ProjetWPF.PagesWPF
                     Inscription i = new Inscription(m.Id, idRideChoose, passenger, bike);
 
                     inscriptionDAO.Create(i);
-                    MessageBox.Show("Inscription succès");
+                    MessageBox.Show("Inscription as passenger succès");
                 }
             }else if (!check)
             {
@@ -161,13 +165,10 @@ namespace ProjetWPF.PagesWPF
                     string pbString = textBoxBikes.Text;
                     int.TryParse(pmString, out pMembers);
                     int.TryParse(pbString, out pBikes);
-
+                    Vehicle v = new Vehicle(pMembers, pBikes, m.Id, idRideChoose);
+                    vehicleDAO.Create(v);
                     inscriptionDAO.Create(i);
-                    MessageBox.Show("Inscription succès");
-                    //ici on met le create du vehicule genre
-                    //Vehicle v = new Vehicle(pMembers, pBikes, m.Id, idRideChoose);
-                    //vehicleDAO.create(v); en comm parce que j'ai pas encore crée la fonction create.
-
+                    MessageBox.Show("Inscription as driver succès");
                 }
             }
         }
