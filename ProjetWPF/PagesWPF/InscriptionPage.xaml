@@ -46,9 +46,14 @@
         </ListBox>
         <TextBlock HorizontalAlignment="Left" Margin="45,270,0,0" Text="Ride chosen" VerticalAlignment="Top" FontSize="18"/>
         <TextBox Name="textBoxRide" HorizontalAlignment="Left" Margin="158,272,0,0" VerticalAlignment="Top" Width="51" Height="22"/>
-        <CheckBox Checked="passengerChecked" Unchecked="passengerUnchecked" Name="checkBoxPassenger" Content="Passenger" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top"/>
-        <CheckBox Checked="bikesChecked" Unchecked="bikesUnchecked" Name="checkBoxBikes" Content="Bikes" HorizontalAlignment="Left" Margin="52,328,0,0" VerticalAlignment="Top"/>
-        <Button Content="Register" HorizontalAlignment="Left" Margin="54,364,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
+        <CheckBox Checked="passengerChecked" Unchecked="passengerUnchecked" Name="checkBoxPassenger" Content="Passenger + bike" HorizontalAlignment="Left" Margin="52,308,0,0" VerticalAlignment="Top"/>
+        <CheckBox Checked="driverChecked" Unchecked="driverUnchecked" Name="checkBoxDriver" Content="Driver + bike" HorizontalAlignment="Left" Margin="52,338,0,0" VerticalAlignment="Top"/>
 
+        <TextBlock HorizontalAlignment="Left" Margin="166,338,0,0" Text="Members" VerticalAlignment="Top" FontSize="12" Height="20" Width="66"/>
+        <TextBlock HorizontalAlignment="Left" Margin="166,358,0,0" Text="Bikes" VerticalAlignment="Top" FontSize="12" Height="20" Width="36"/>
+        <TextBox Name="textBoxPlacesMember" HorizontalAlignment="Left" Margin="225,337,0,0" VerticalAlignment="Top" Width="45" Height="18"/>
+        <TextBox Name="textBoxPlacesBikes" HorizontalAlignment="Left" Margin="225,359,0,0" VerticalAlignment="Top" Width="45" Height="18" TextChanged="textBoxPlacesBikes_TextChanged"/>
+
+        <Button Content="Register" HorizontalAlignment="Left" Margin="52,403,0,0" VerticalAlignment="Top" Width="61" Click="RegisterClick"/>
     </Grid>
 </Page>

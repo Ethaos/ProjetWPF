@@ -49,20 +49,22 @@ namespace ProjetWPF.PagesWPF
         private void passengerChecked(object sender, RoutedEventArgs e)
         {
             passenger = 1;
+            bike = 1;
         }
         private void passengerUnchecked(object sender, RoutedEventArgs e)
         {
             passenger = 0;
-        }
-
-        private void bikesChecked(object sender, RoutedEventArgs e)
-        {
-            bike = 1;
-        }
-        private void bikesUnchecked(object sender, RoutedEventArgs e)
-        {
             bike = 0;
         }
+
+        private void driverChecked(object sender, RoutedEventArgs e)
+        {
+        }
+        private void driverUnchecked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 
         private void RegisterClick(object sender, RoutedEventArgs e)
         {
