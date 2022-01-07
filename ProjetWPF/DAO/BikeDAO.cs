@@ -83,5 +83,10 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
+
+        public override List<Bike> FindByMember(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

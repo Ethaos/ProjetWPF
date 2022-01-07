@@ -35,6 +35,7 @@ namespace ProjetWPF
             DAO<Member> memberDAO = adf.GetMemberDAO();
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
             DAO<Bike> bikeDAO = adf.GetBikeDAO();
+            DAO<Ride> rideDAO = adf.GetRideDAO();
 
             listCategory = categoryDAO.FindBy(member.Id);
             LbxCatMember.ItemsSource = listCategory;
@@ -44,6 +45,9 @@ namespace ProjetWPF
 
             List<Category> listCat = categoryDAO.FindAll();
             CatChoise.ItemsSource = listCat;
+
+            List<Ride> listRide = rideDAO.FindByMember(m.Id);
+            LbxRides.ItemsSource = listRide;
 
             listCategoryAll = listCat;
         }

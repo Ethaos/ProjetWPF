@@ -9,6 +9,10 @@
       Title="MemberPage">
 
     <Grid>
+        <Label Content="Member Page" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Height="45" Width="170" FontSize="24"/>
+        <Label Content="Categories" HorizontalAlignment="Left" Margin="54,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
+        <Label Content="Num" Margin="54,98,689,316"/>
+        <Label Content="Name" Margin="95,98,637,316"/>
         <ListBox x:Name="LbxCatMember" Margin="59,126,601,180" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -24,10 +28,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Member Page" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Height="45" Width="170" FontSize="24"/>
-        <Label Content="Categories" HorizontalAlignment="Left" Margin="54,60,0,0" VerticalAlignment="Top" Height="45" Width="175" FontSize="24"/>
-
-
         <ComboBox x:Name="CatChoise" Margin="59,291,652,125" SelectedIndex="0" SelectionChanged="CatChoise_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -35,8 +35,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-
         <Button Content="Add" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Height="34" Width="51" Click="AddCatClick"/>
+
         <Label Content="Your bikes" HorizontalAlignment="Left" Margin="261,60,0,0" VerticalAlignment="Top" Height="45" Width="176" FontSize="24"/>
         <Label Content="Weight" Margin="267,98,459,316"/>
         <Label Content="Type" Margin="319,98,431,316"/>
@@ -54,12 +54,37 @@
 
                         <Label Content="{Binding Weight}" Width="40"/>
                         <Label Grid.Column="2" Content="{Binding Type}" Width="50"/>
-                        <Label Grid.Column="4" Content="{Binding Length}" Width="30"/>
+                        <Label Grid.Column="4" Content="{Binding Length}" Width="35"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Num" Margin="54,98,689,316"/>
-        <Label Content="Name" Margin="95,98,637,316"/>
+
+        <Label Content="Your ride registrations" HorizontalAlignment="Left" Margin="478,60,0,0" VerticalAlignment="Top" Height="45" Width="260" FontSize="24"/>
+        <Label Content="Num" Margin="478,98,248,316"/>
+        <Label Content="Place" Margin="526,98,213,316"/>
+        <Label Content="Date" Margin="613,98,117,316"/>
+        <Label Content="Fee" Margin="683,98,47,316"/>
+        <ListBox x:Name="LbxRides" Margin="478,126,62,180" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Num}" Width="30"/>
+                        <Label Grid.Column="2" Content="{Binding PlaceDeparture}" Width="100"/>
+                        <Label Grid.Column="3" Content="{Binding DateDeparture}" Width="70"/>
+                        <Label Grid.Column="4" Content="{Binding PackageFee}" Width="30"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
     </Grid>
 </Page>

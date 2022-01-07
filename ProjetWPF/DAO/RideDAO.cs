@@ -80,6 +80,42 @@ namespace ProjetWPF.DAO
             return false;
         }
 
+        public override List<Ride> FindByMember(int id)
+        {
+            List<Ride> listRide = new List<Ride>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Ride R join dbo.Inscription I " +
+                        "on R.num = I.idRide join dbo.Member M on I.idMember = M.idMember where M.idMember = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Ride ride = new Ride
+                            {
+                                Num = reader.GetInt32("num"),
+                                PlaceDeparture = reader.GetString("placeDeparture"),
+                                DateDeparture = reader.GetDateTime("dateDeparture"),
+                                PackageFee = reader.GetDouble("packageFee"),
+                                IdCategory = reader.GetInt32("idCategory")
+                            };
+                            listRide.Add(ride);
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return listRide;
+        }
+
         public override List<Ride> FindBy(int id)
         {
             List<Ride> listRide = new List<Ride>();
