@@ -3,6 +3,7 @@ using ProjetWPF.Factory;
 using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace ProjetWPF.PagesWPF
     {
         Member m = null;
         int passenger=0, bike=0;
+        List<Ride> listR = new List<Ride>();
         public InscriptionPage(Member member)
         {
             InitializeComponent();
@@ -44,6 +46,17 @@ namespace ProjetWPF.PagesWPF
             
             List<Ride> listRide = rideDAO.FindBy(idCategory);
             LbxRides.ItemsSource = listRide;
+            listR = listRide;
+        }
+
+        private void RideChoise_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            int idOrder = LbxRides.SelectedIndex;
+            Ride r = listR[idOrder];
+            int idRide = r.Num;
+            string id = idRide.ToString();
+            textBoxRide.Text = id;
+
         }
 
         private void passengerChecked(object sender, RoutedEventArgs e)
