@@ -35,7 +35,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="148,291,0,0" VerticalAlignment="Top" Height="34" Width="51" Click="AddCatClick"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="131,291,0,0" VerticalAlignment="Top" Height="25" Width="51" Click="AddCatClick"/>
 
         <Label Content="Your bikes" HorizontalAlignment="Left" Margin="261,60,0,0" VerticalAlignment="Top" Height="45" Width="176" FontSize="24"/>
         <Label Content="Weight" Margin="267,98,459,316"/>
@@ -85,6 +85,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
+
     </Grid>
 </Page>

@@ -37,8 +37,6 @@ namespace ProjetWPF.PagesWPF
             CarChoice.Visibility = Visibility.Visible;
             NoCar.Visibility = Visibility.Hidden;
 
-
-
             AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Member> memberDAO = adf.GetMemberDAO();
             DAO<Category> categoryDAO = adf.GetCategoryDAO();
