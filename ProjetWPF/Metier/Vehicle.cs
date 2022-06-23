@@ -6,11 +6,11 @@ namespace ProjetWPF.Metier
 {
     class Vehicle
     {
-        private int idVehicle;
-        private int nbrPlacesMembers;
-        private int nbrPlacesBikes;
-        private int idDriver;
-        private int idRide;
+        private int idVehicle { get; set; }
+        private int nbrPlacesMembers { get; set; }
+        private int nbrPlacesBikes { get; set; }
+        private int idDriver { get; set; }
+        private int idRide { get; set; }
 
         public Vehicle(int idVehicle, int nbrPlacesMembers, int nbrPlacesBikes, int idDriver, int idRide)
         {
@@ -21,35 +21,14 @@ namespace ProjetWPF.Metier
             this.idRide = idRide;
         }
 
-        public Vehicle(){ }
+        public void addPassenger()
+        {
 
-        public int Id
-        {
-            get { return idVehicle; }
-            set { idVehicle = value; }
-        }
-        public int PMember
-        {
-            get { return nbrPlacesMembers; }
-            set { nbrPlacesMembers = value; }
         }
 
-        public int PBike
+        public void addBike()
         {
-            get { return nbrPlacesBikes; }
-            set { nbrPlacesBikes = value; }
-        }
 
-        public int Driver
-        {
-            get { return idDriver; }
-            set { idDriver = value; }
-        }
-
-        public int Ride
-        {
-            get { return idRide; }
-            set { idRide = value; }
         }
     }
 }

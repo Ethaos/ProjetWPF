@@ -6,13 +6,11 @@ namespace ProjetWPF.Metier
 {
     class Ride
     {
-        private int num;
-        private string placeDeparture;
-        private string dateDeparture;
-        private double packageFee;
-        private int idCategory;
-
-        public Ride() { }
+        private int num { get; set; }
+        private string placeDeparture { get; set; }
+        private string dateDeparture { get; set; }
+        private double packageFee { get; set; }
+        private int idCategory { get; set; }
 
         public Ride(string placeDeparture, string dateDeparture, double packageFee, int idCategory)
         {
@@ -21,6 +19,7 @@ namespace ProjetWPF.Metier
             this.packageFee = packageFee;
             this.idCategory = idCategory;
         }
+
         public Ride(int num, string placeDeparture, string dateDeparture, double packageFee, int idCategory)
         {
             this.num = num;
@@ -30,34 +29,44 @@ namespace ProjetWPF.Metier
             this.idCategory = idCategory;
         }
 
-        public int Num
+        public void addParticipant()
         {
-            get { return num; }
-            set { num = value; }
+
         }
 
-        public string PlaceDeparture
+        public void getTotalMemberPlaces()
         {
-            get { return placeDeparture; }
-            set { placeDeparture = value; }
+
         }
 
-        public string DateDeparture
+        public void getRestMemberPlaces()
         {
-            get { return dateDeparture; }
-            set { dateDeparture = value; }
+
         }
 
-        public double PackageFee
+        public void getTotalBikePlaces()
         {
-            get { return packageFee; } 
-            set { packageFee = value; }
+
         }
 
-        public int IdCategory
+        public void getRestBikePlaces()
         {
-            get { return idCategory; }
-            set { idCategory = value; }
+
+        }
+
+        public void getMemberPlacesNeed()
+        {
+
+        }
+
+        public void getBikePlacesNeed()
+        {
+
+        }
+
+        public void addVehicle()
+        {
+
         }
     }
 }
