@@ -16,4 +16,40 @@
         this.login = login;
         this.passWord = passWord;
     }
+
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+    public string FirstName
+    {
+        get { return firstName; }
+        set { firstName = value; }
+    }
+
+    public int Tel
+    {
+        get { return tel; }
+        set { tel = value; }
+    }
+
+    public string Login
+    {
+        get { return login; }
+        set { login = value; }
+    }
+
+    public string PassWord
+    {
+        get { return passWord; }
+        set { passWord = value; }
+    }
 }

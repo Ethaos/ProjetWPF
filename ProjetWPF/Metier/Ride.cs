@@ -23,6 +23,36 @@
         this.idCategory = idCategory;
     }
 
+    public int Num
+    {
+        get { return num; }
+        set { num = value; }
+    }
+
+    public string PlaceDeparture
+    {
+        get { return placeDeparture; }
+        set { placeDeparture = value; }
+    }
+
+    public string DateDeparture
+    {
+        get { return dateDeparture; }
+        set { dateDeparture = value; }
+    }
+
+    public double PackageFee
+    {
+        get { return packageFee; }
+        set { packageFee = value; }
+    }
+
+    public int IdCategory
+    {
+        get { return idCategory; }
+        set { idCategory = value; }
+    }
+
     public void addParticipant()
     {
 

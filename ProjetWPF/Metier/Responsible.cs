@@ -6,4 +6,10 @@
     {
         this.idCategory = idCategory;
     }
+
+    public int IdCategory
+    {
+        get { return idCategory; }
+        set { idCategory = value; }
+    }
 }

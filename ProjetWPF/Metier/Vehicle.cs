@@ -15,6 +15,36 @@
         this.idRide = idRide;
     }
 
+    public int IdVehicle
+    {
+        get { return idVehicle; }
+        set { idVehicle = value; }
+    }
+
+    public int NbrPlacesMembers
+    {
+        get { return nbrPlacesMembers; }
+        set { nbrPlacesMembers = value; }
+    }
+
+    public int NbrPlacesBikes
+    {
+        get { return nbrPlacesBikes; }
+        set { nbrPlacesBikes = value; }
+    }
+
+    public int IdDriver
+    {
+        get { return idDriver; }
+        set { idDriver = value; }
+    }
+
+    public int IdRide
+    {
+        get { return idRide; }
+        set { idRide = value; }
+    }
+
     public void addPassenger()
     {
 

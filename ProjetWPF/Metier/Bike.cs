@@ -12,4 +12,23 @@
         this.type = type;
         this.length = length;
     }
+
+    public double Weight
+    {
+        get { return weight; } 
+        set { weight = value; } 
+    }
+
+    public string Type
+    {
+        get { return type; }
+        set { type = value; }
+    }
+
+    public double Length
+    {
+        get { return length; }
+        set { length = value; }
+    }
+
 }
