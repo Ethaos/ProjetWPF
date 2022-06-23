@@ -1,5 +1,4 @@
 ﻿using ProjetWPF.DAO;
-using ProjetWPF.Metier;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,130 +1,122 @@
-﻿using ProjetWPF.Metier;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
-namespace ProjetWPF.DAO
+public class VehicleDAO : DAO<Vehicle>
 {
-    internal class VehicleDAO : DAO<Vehicle>
+    public override bool Create(Vehicle v)
     {
-        public override bool Create(Vehicle v)
+        try
         {
-            try
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("insert into dbo.Vehicle (nbrPlacesMembers, nbrPlacesBikes, idRide, idMember) " +
-                        "values('" + v.PMember + "' , '" + v.PBike + "' , '" + v.Ride + "' , '" + v.Driver + "')",
-                        connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                }
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("insert into dbo.Vehicle (nbrPlacesMembers, nbrPlacesBikes, idMember, idRide) " +
+                    "values('" + v.NbrPlacesMembers + "' , '" + v.NbrPlacesBikes + "' , '" + v.IdDriver + "' , '" + v.IdRide + "')",
+                    connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
             }
-            catch (SqlException)
-            {
-                throw new Exception("Une erreur sql s'est produite!");
-            }
-            return false;
         }
-
-        public override bool Update(Vehicle obj)
+        catch (SqlException)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("update dbo.Vehicle set nbrPlacesmembers = @nbrMember, nbrPlacesBikes = @nbrBike WHERE idVehicle = @id",
-                        connection);
-                    cmd.Parameters.AddWithValue("id", obj.Id);
-                    cmd.Parameters.AddWithValue("nbrMember", obj.PMember);
-                    cmd.Parameters.AddWithValue("nbrBike", obj.PBike);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                }
-            }
-            catch (SqlException)
-            {
-                throw new Exception("Une erreur sql s'est produite!");
-            }
-            return false;
+            throw new Exception("Une erreur sql s'est produite!");
         }
-
-        public override bool Delete(Vehicle obj)
+        return false;
+    }
+    public override bool Update(Vehicle obj)
+    {
+        try
         {
-            return false;
-        }
-
-        public override Vehicle Find(int id)
-        {
-            Vehicle vehicle = null;
-
-            try
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("update dbo.Vehicle set nbrPlacesmembers = @nbrMember, nbrPlacesBikes = @nbrBike WHERE idVehicle = @id",
+                    connection);
+                cmd.Parameters.AddWithValue("id", obj.IdVehicle);
+                cmd.Parameters.AddWithValue("nbrMember", obj.NbrPlacesMembers);
+                cmd.Parameters.AddWithValue("nbrBike", obj.NbrPlacesBikes);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        catch (SqlException)
+        {
+            throw new Exception("Une erreur sql s'est produite!");
+        }
+        return false;
+    }
+    public override bool Delete(Vehicle obj)
+    {
+        return false;
+    }
+    public override Vehicle Find(int id)
+    {
+        Vehicle vehicle = null;
+
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * from dbo.Vehicle WHERE idVehicle = @id", connection);
+                cmd.Parameters.AddWithValue("id", id);
+                connection.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Vehicle WHERE idVehicle = @id", connection);
-                    cmd.Parameters.AddWithValue("id", id);
-                    connection.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    if (reader.Read())
                     {
-                        if (reader.Read())
+                        vehicle = new Vehicle
                         {
-                            vehicle = new Vehicle
-                            {
-                                Id = reader.GetInt32("idVehicle"),
-                                PMember = reader.GetInt32("nbrPlacesmembers"),
-                                PBike = reader.GetInt32("nbrPlacesBikes"),
-                                Ride = reader.GetInt32("idRide"),
-                                Driver = reader.GetInt32("idMember")
-                            };
-                        }
+                            IdVehicle = reader.GetInt32("idVehicle"),
+                            NbrPlacesMembers = reader.GetInt32("nbrPlacesmembers"),
+                            NbrPlacesBikes = reader.GetInt32("nbrPlacesBikes"),
+                            IdRide = reader.GetInt32("idRide"),
+                            IdDriver = reader.GetInt32("idMember")
+                        };
                     }
                 }
             }
-            catch (SqlException)
-            {
-                throw new Exception("Une erreur sql s'est produite!");
-            }
-            return vehicle;
         }
-        public List<Vehicle> FindBy(int id)
+        catch (SqlException)
         {
-            List<Vehicle> listVehicle = new List<Vehicle>();
+            throw new Exception("Une erreur sql s'est produite!");
+        }
+        return vehicle;
+    }
+    public List<Vehicle> FindBy(int id)
+    {
+        List<Vehicle> listVehicle = new List<Vehicle>();
 
-            try
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("SELECT * from dbo.Vehicle WHERE idRide = @id", connection);
-                    cmd.Parameters.AddWithValue("id", id);
+                SqlCommand cmd = new SqlCommand("SELECT * from dbo.Vehicle WHERE idRide = @id", connection);
+                cmd.Parameters.AddWithValue("id", id);
 
-                    connection.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                connection.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        Vehicle vehicle = new Vehicle
                         {
-                            Vehicle vehicle = new Vehicle
-                            {
-                                Id = reader.GetInt32("idVehicle"),
-                                PMember = reader.GetInt32("nbrPlacesmembers"),
-                                PBike = reader.GetInt32("nbrPlacesBikes"),
-                                Ride = reader.GetInt32("idRide"),
-                                Driver = reader.GetInt32("idMember")
-                            };
-                            listVehicle.Add(vehicle);
-                        }
+                            IdVehicle = reader.GetInt32("idVehicle"),
+                            NbrPlacesMembers = reader.GetInt32("nbrPlacesmembers"),
+                            NbrPlacesBikes = reader.GetInt32("nbrPlacesBikes"),
+                            IdRide = reader.GetInt32("idRide"),
+                            IdDriver = reader.GetInt32("idMember")
+                        };
+                        listVehicle.Add(vehicle);
                     }
                 }
             }
-            catch (SqlException)
-            {
-                throw new Exception("Une erreur sql s'est produite!");
-            }
-            return listVehicle;
         }
+        catch (SqlException)
+        {
+            throw new Exception("Une erreur sql s'est produite!");
+        }
+        return listVehicle;
     }
 }

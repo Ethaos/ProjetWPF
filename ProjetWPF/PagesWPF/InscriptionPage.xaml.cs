@@ -1,6 +1,4 @@
-﻿using ProjetWPF.DAO;
-using ProjetWPF.Factory;
-using ProjetWPF.Metier;
+﻿using ProjetWPF.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;

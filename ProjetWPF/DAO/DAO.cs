@@ -1,18 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 
-namespace ProjetWPF.DAO
+public abstract class DAO<T>
 {
-    public abstract class DAO<T>
+    protected string connectionString = null;
+    public DAO()
     {
-        protected string connectionString = null;
-        public DAO()
-        {
-            this.connectionString = ConfigurationManager.ConnectionStrings["ProjetWPF"].ConnectionString;
-        }
-        public abstract bool Create(T obj);
-        public abstract bool Update(T obj);
-        public abstract bool Delete(T obj);
-        public abstract T Find(int id);
+        this.connectionString = ConfigurationManager.ConnectionStrings["ProjetWPF"].ConnectionString;
     }
+    public abstract bool Create(T obj);
+    public abstract bool Update(T obj);
+    public abstract bool Delete(T obj);
+    public abstract T Find(int id);
 }
