@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjetWPF.Metier
+﻿public class Cyclo : Category
 {
-    class Cyclo : Category
+    public Cyclo()
     {
-        public Cyclo()
-        {
 
-        }
     }
 }

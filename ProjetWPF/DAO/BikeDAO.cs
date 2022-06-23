@@ -1,9 +1,7 @@
-﻿using ProjetWPF.Metier;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace ProjetWPF.DAO
 {
@@ -52,9 +50,9 @@ namespace ProjetWPF.DAO
                         {
                             Bike bike = new Bike
                             {
-                                Weight = reader.GetDouble("weight"),
-                                Type = reader.GetString("type"),
-                                Length = reader.GetDouble("length")
+                                weight = reader.GetDouble("weight"),
+                                type = reader.GetString("type"),
+                                length = reader.GetDouble("length")
                             };
                             listBike.Add(bike);
                         }

@@ -1,13 +1,11 @@
-﻿using ProjetWPF.Metier;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace ProjetWPF.DAO
 {
-    internal class CategoryDAO : DAO<Category>
+    public class CategoryDAO : DAO<Category>
     {
         public CategoryDAO() { }
         public override bool Create(Category obj)
@@ -38,9 +36,9 @@ namespace ProjetWPF.DAO
                         {
                             Category cat = new Category
                             {
-                                Num = reader.GetInt32("num"),
-                                NameCategory = reader.GetString("nameCategory"),
-                                NameUnderCategory = reader.GetString("nameUnderCategory")
+                                num = reader.GetInt32("num"),
+                                nameCategory = reader.GetString("nameCategory"),
+                                nameUnderCategory = reader.GetString("nameUnderCategory")
                             };
                             listCategory.Add(cat);
                         }
@@ -71,9 +69,9 @@ namespace ProjetWPF.DAO
                         {
                             category = new Category
                             {
-                                Num = reader.GetInt32("num"),
-                                NameCategory = reader.GetString("nameCategory"),
-                                NameUnderCategory = reader.GetString("nameUnderCategory")
+                                num = reader.GetInt32("num"),
+                                nameCategory = reader.GetString("nameCategory"),
+                                nameUnderCategory = reader.GetString("nameUnderCategory")
 
                             };
                         }
@@ -106,9 +104,9 @@ namespace ProjetWPF.DAO
                         {
                             Category cat = new Category
                             {
-                                Num = reader.GetInt32("num"),
-                                NameCategory = reader.GetString("nameCategory"),
-                                NameUnderCategory = reader.GetString("nameUnderCategory")
+                                num = reader.GetInt32("num"),
+                                nameCategory = reader.GetString("nameCategory"),
+                                nameUnderCategory = reader.GetString("nameUnderCategory")
                             };
                             listCategory.Add(cat);
                         }

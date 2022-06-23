@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjetWPF.Metier
+﻿public class Trialist : VTT
 {
-    class Trialist : VTT
+    public Trialist()
     {
-        public Trialist()
-        {
 
-        }
     }
 }

@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjetWPF.Metier
+﻿public class Treasurer : Person
 {
-    class Treasurer : Person
+    public Treasurer(int id, string name, string firstName, int tel, string login, string passWord) : base(id, name, firstName, tel, login, passWord)
+    {
+    }
+
+    public void envoiLettreRappel()
     {
 
+    }
 
+    public void payerConducteur()
+    {
 
-        public void envoiLettreRappel()
-        {
+    }
 
-        }
+    public void reclamerForfait()
+    {
 
-        public void payerConducteur()
-        {
-
-        }
-
-        public void reclamerForfait()
-        {
-
-        }
     }
 }

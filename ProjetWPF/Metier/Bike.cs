@@ -1,9 +1,15 @@
-﻿namespace ProjetWPF.Metier
+﻿public class Bike
 {
-    class Bike
+    private double weight { get; set; }
+    private string type { get; set; }
+    private double length { get; set; }
+
+    public Bike() { }
+
+    public Bike(double weight, string type, double length)
     {
-        private double weight { get; set; }
-        private string type { get; set; }
-        private double length { get; set; }
+        this.weight = weight;
+        this.type = type;
+        this.length = length;
     }
 }

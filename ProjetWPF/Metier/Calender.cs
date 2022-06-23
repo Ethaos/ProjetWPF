@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjetWPF.Metier
+﻿public class Calender
 {
-    class Calender
+
+    public void ajouterBalade()
     {
 
-
-        public void ajouterBalade()
-        {
-
-        }
     }
 }

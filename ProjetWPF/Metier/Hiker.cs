@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjetWPF.Metier
+﻿public class Hiker : VTT
 {
-    class Hiker : VTT
+    public Hiker()
     {
-        public Hiker()
-        {
 
-        }
     }
 }

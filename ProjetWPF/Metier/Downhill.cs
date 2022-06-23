@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProjetWPF.Metier
+﻿public class Downhill : VTT
 {
-    class Downhill : VTT
+    public Downhill()
     {
-        public Downhill()
-        {
 
-        }
     }
 }
