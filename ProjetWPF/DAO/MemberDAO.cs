@@ -31,6 +31,10 @@ namespace ProjetWPF.DAO
             }
             return false;
         }
+        public override bool Update(Member obj)
+        {
+            return false;
+        }
         public override bool Delete(Member m)
         {
             try
@@ -59,12 +63,6 @@ namespace ProjetWPF.DAO
             }
             return false;
         }
-
-        public override bool Update(Member obj)
-        {
-            return false;
-        }
-
         public override Member Find(int id)
         {
             Member member = null;
@@ -102,8 +100,7 @@ namespace ProjetWPF.DAO
             }
             return member;
         }
-
-        public override List<Member> FindAll()
+        public List<Member> FindAll()
         {
             List<Member> listMember = new List<Member>();
             try
@@ -137,8 +134,7 @@ namespace ProjetWPF.DAO
             }
             return listMember;
         }
-
-        public override bool Add(int idMember, int idCategory)
+        public bool Add(int idMember, int idCategory)
         {
             try
             {
@@ -159,8 +155,7 @@ namespace ProjetWPF.DAO
             }
             return false;
         }
-
-        public override Member LoginCheck(string login, string password)
+        public Member LoginCheck(string login, string password)
         {
             Member member = null;
             try
@@ -196,15 +191,6 @@ namespace ProjetWPF.DAO
                 throw new Exception("Une erreur sql s'est produite!");
             }
             return member;
-        }
-        public override List<Member> FindBy(int id)
-        {
-            return null;
-        }
-
-        public override List<Member> FindByMember(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -12,16 +12,47 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
-        public override bool Delete(Category obj)
-        {
-            return false;
-        }
         public override bool Update(Category obj)
         {
             return false;
         }
+        public override bool Delete(Category obj)
+        {
+            return false;
+        }
+        public override Category Find(int id)
+        {
+            Category category = null;
 
-        public override List<Category> FindAll()
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Category WHERE num = @id", connection);
+                    cmd.Parameters.AddWithValue("id", id);
+                    connection.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            category = new Category
+                            {
+                                num = reader.GetInt32("num"),
+                                nameCategory = reader.GetString("nameCategory"),
+                                nameUnderCategory = reader.GetString("nameUnderCategory")
+
+                            };
+                        }
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw new Exception("Une erreur sql s'est produite!");
+            }
+            return category;
+        }
+        public List<Category> FindAll()
         {
             List<Category> listCategory = new List<Category>();
             try
@@ -51,41 +82,7 @@ namespace ProjetWPF.DAO
             }
             return listCategory;
         }
-
-        public override Category Find(int id)
-        {
-            Category category = null;
-            
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(this.connectionString))
-                {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Category WHERE num = @id", connection);
-                    cmd.Parameters.AddWithValue("id", id);
-                    connection.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            category = new Category
-                            {
-                                num = reader.GetInt32("num"),
-                                nameCategory = reader.GetString("nameCategory"),
-                                nameUnderCategory = reader.GetString("nameUnderCategory")
-
-                            };
-                        }
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                throw new Exception("Une erreur sql s'est produite!");
-            }
-            return category;
-        }
-
-        public override List<Category> FindBy(int id)
+        public List<Category> FindBy(int id)
         {
             List<Category> listCategory = new List<Category>();
 
@@ -118,21 +115,6 @@ namespace ProjetWPF.DAO
                 throw new Exception("Une erreur sql s'est produite!");
             }
             return listCategory;
-        }
-
-        public override bool Add(int a, int b)
-        {
-            return false;
-        }
-
-        public override Category LoginCheck(string a, string b)
-        {
-            return null;
-        }
-
-        public override List<Category> FindByMember(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

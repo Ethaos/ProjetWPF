@@ -11,28 +11,19 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
-
-        public override bool Delete(Bike obj)
-        {
-            return false;
-        }
-
         public override bool Update(Bike obj)
         {
             return false;
         }
-
+        public override bool Delete(Bike obj)
+        {
+            return false;
+        }
         public override Bike Find(int id)
         {
             return null;
         }
-
-        public override List<Bike> FindAll()
-        {
-            return null;
-        }
-
-        public override List<Bike> FindBy(int id)
+        public List<Bike> FindBy(int id)
         {
             List<Bike>  listBike = new List<Bike>();
 
@@ -71,20 +62,6 @@ namespace ProjetWPF.DAO
                 throw new Exception("Une erreur sql s'est produite!");
             }
             return listBike;
-        }
-
-        public override Bike LoginCheck(string a, string b)
-        {
-            return null;
-        }
-        public override bool Add(int a, int b)
-        {
-            return false;
-        }
-
-        public override List<Bike> FindByMember(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

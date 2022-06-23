@@ -1,20 +1,14 @@
 ﻿using ProjetWPF.Metier;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace ProjetWPF.DAO
 {
-    internal class ResponsibleDAO : DAO<Responsible>
+    public class ResponsibleDAO : DAO<Responsible>
     {
         public ResponsibleDAO() { }
         public override bool Create(Responsible obj)
-        {
-            return false;
-        }
-        public override bool Delete(Responsible obj)
         {
             return false;
         }
@@ -22,12 +16,10 @@ namespace ProjetWPF.DAO
         {
             return false;
         }
-
-        public override List<Responsible> FindAll()
+        public override bool Delete(Responsible obj)
         {
-            return null;
+            return false;
         }
-
         public override Responsible Find(int id)
         {
             
@@ -65,8 +57,7 @@ namespace ProjetWPF.DAO
             }
             return responsible;
         }
-
-        public override Responsible LoginCheck(string login, string password)
+        public Responsible LoginCheck(string login, string password)
         {
             Responsible responsible = null;
             try
@@ -101,21 +92,6 @@ namespace ProjetWPF.DAO
                 throw new Exception("Une erreur sql s'est produite!");
             }
             return responsible;
-        }
-
-        public override bool Add(int a, int b)
-        {
-            return false;
-        }
-
-        public override List<Responsible> FindBy(int id)
-        {
-            return null;
-        }
-
-        public override List<Responsible> FindByMember(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

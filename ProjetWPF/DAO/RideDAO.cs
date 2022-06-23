@@ -33,6 +33,10 @@ namespace ProjetWPF.DAO
             }
             return false;
         }
+        public override bool Update(Ride obj)
+        {
+            return false;
+        }
         public override bool Delete(Ride r)
         {
             try
@@ -61,26 +65,11 @@ namespace ProjetWPF.DAO
             }
             return false;
         }
-        public override bool Update(Ride obj)
-        {
-            return false;
-        }
         public override Ride Find(int id)
         {
             return null;
         }
-
-        public override List<Ride> FindAll()
-        {
-            return null;
-        }
-
-        public override bool Add(int a, int b)
-        {
-            return false;
-        }
-
-        public override List<Ride> FindByMember(int id)
+        public List<Ride> FindByMember(int id)
         {
             List<Ride> listRide = new List<Ride>();
             try
@@ -115,8 +104,7 @@ namespace ProjetWPF.DAO
             }
             return listRide;
         }
-
-        public override List<Ride> FindBy(int id)
+        public List<Ride> FindBy(int id)
         {
             List<Ride> listRide = new List<Ride>();
 
@@ -150,11 +138,6 @@ namespace ProjetWPF.DAO
                 throw new Exception("Une erreur sql s'est produite!");
             }
             return listRide;
-        }
-
-        public override Ride LoginCheck(string a, string b)
-        {
-            return null;
         }
     }
 }

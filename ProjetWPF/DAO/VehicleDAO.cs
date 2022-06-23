@@ -91,13 +91,7 @@ namespace ProjetWPF.DAO
             }
             return vehicle;
         }
-
-        public override List<Vehicle> FindAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<Vehicle> FindBy(int id)
+        public List<Vehicle> FindBy(int id)
         {
             List<Vehicle> listVehicle = new List<Vehicle>();
 
@@ -132,22 +126,5 @@ namespace ProjetWPF.DAO
             }
             return listVehicle;
         }
-
-        public override List<Vehicle> FindByMember(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool Add(int a, int b)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Vehicle LoginCheck(string a, string b)
-        {
-            throw new NotImplementedException();
-        }
-
-        
     }
 }
