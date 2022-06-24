@@ -1,18 +1,18 @@
 ﻿public class Ride
 {
-    private int num { get; set; }
-    private string placeDeparture { get; set; }
-    private string dateDeparture { get; set; }
-    private double packageFee { get; set; }
-    private int idCategory { get; set; }
+    private int num;
+    private string placeDeparture;
+    private string dateDeparture;
+    private double packageFee;
+    private Category category;
 
-    public Ride(int num, string placeDeparture, string dateDeparture, double packageFee, int idCategory)
+    public Ride(int num, string placeDeparture, string dateDeparture, double packageFee, Category category)
     {
         this.num = num;
         this.placeDeparture = placeDeparture;
         this.dateDeparture = dateDeparture;
         this.packageFee = packageFee;
-        this.idCategory = idCategory;
+        this.category = category;
     }
 
     public int Num
@@ -39,10 +39,10 @@
         set { packageFee = value; }
     }
 
-    public int IdCategory
+    public Category Category
     {
-        get { return idCategory; }
-        set { idCategory = value; }
+        get { return category; }
+        set { category = value; }
     }
 
     public void addParticipant()

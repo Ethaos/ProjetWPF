@@ -1,15 +1,15 @@
 ﻿public class Responsible : Person
 {
-    private int idCategory { get; set; }
+    private Category category;
 
-    public Responsible(int id, string name, string firstname, int tel, string login, string password, int idCategory) : base(id, name, firstname, tel, login, password)
+    public Responsible(int id, string name, string firstname, int tel, string login, string password, Category category) : base(id, name, firstname, tel, login, password)
     {
-        this.idCategory = idCategory;
+        this.category = category;
     }
 
-    public int IdCategory
+    public Category Category
     {
-        get { return idCategory; }
-        set { idCategory = value; }
+        get { return category; }
+        set { category = value; }
     }
 }

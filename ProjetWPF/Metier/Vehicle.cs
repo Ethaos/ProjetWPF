@@ -1,18 +1,24 @@
-﻿public class Vehicle
-{
-    private int idVehicle { get; set; }
-    private int nbrPlacesMembers { get; set; }
-    private int nbrPlacesBikes { get; set; }
-    private int idDriver { get; set; }
-    private int idRide { get; set; }
+﻿using System.Collections.Generic;
 
-    public Vehicle(int idVehicle, int nbrPlacesMembers, int nbrPlacesBikes, int idDriver, int idRide)
+public class Vehicle
+{
+    private int idVehicle;
+    private int nbrPlacesMembers;
+    private int nbrPlacesBikes;
+    private Member driver;
+    private List<Member> passengers;
+    private List<Bike> bikes;
+    private List<Ride> rides;
+
+    public Vehicle(int idVehicle, int nbrPlacesMembers, int nbrPlacesBikes, Member driver, List<Member> passengers, List<Bike> bikes, List<Ride> rides)
     {
         this.idVehicle = idVehicle;
         this.nbrPlacesMembers = nbrPlacesMembers;
         this.nbrPlacesBikes = nbrPlacesBikes;
-        this.idDriver = idDriver;
-        this.idRide = idRide;
+        this.driver = driver;
+        this.passengers = passengers;
+        this.bikes = bikes;
+        this.rides = rides;
     }
 
     public int IdVehicle
@@ -33,25 +39,42 @@
         set { nbrPlacesBikes = value; }
     }
 
-    public int IdDriver
+    public Member Driver
     {
-        get { return idDriver; }
-        set { idDriver = value; }
+        get { return driver; }
+        set { driver = value; }
     }
 
-    public int IdRide
+    public List<Member> Passengers
     {
-        get { return idRide; }
-        set { idRide = value; }
+        get { return passengers; }
+        set { passengers = value; }
     }
 
-    public void addPassenger()
+    public List<Bike> Bikes
     {
-
+        get { return bikes; }
+        set { bikes = value; }
     }
 
-    public void addBike()
+    public List<Ride> Rides
     {
+        get { return rides; }
+        set { rides = value; }
+    }
 
+    public void addPassenger(Member passenger)
+    {
+        this.passengers.Add(passenger);
+    }
+
+    public void addBike(Bike bike)
+    {
+        this.bikes.Add(bike);
+    }
+
+    public void addRide(Ride ride)
+    {
+        this.rides.Add(ride);
     }
 }

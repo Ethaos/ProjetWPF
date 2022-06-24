@@ -1,16 +1,17 @@
-﻿public class Category
+﻿using System.Collections.Generic;
+
+public class Category
 {
-    private int num { get; set; }
-    private string nameCategory { get; set; }
-    private string nameUnderCategory { get; set; }
+    private int num;
+    private string nameCategory;
+    private List<Member> members;
 
     public Category() { }
 
-    public Category(int num, string nameCategory, string nameUnderCategory)
+    public Category(int num, string nameCategory)
     {
         this.num = num;
         this.nameCategory = nameCategory;
-        this.nameUnderCategory = nameUnderCategory;
     }
 
     public int Num
@@ -25,9 +26,9 @@
         set { nameCategory = value; }
     }
 
-    public string NameUnderCategory
+    public List<Member> Members
     {
-        get { return nameUnderCategory; }
-        set { nameUnderCategory = value; }
+        get { return members; }
+        set { members = value; }
     }
 }

@@ -41,20 +41,5 @@ namespace ProjetWPF.Factory
         {
             return new VehicleDAO();
         }
-
-        /*
-        public override DAO<Category> GetCategoryDAO()
-        {
-            return new CategoryDAO();
-        }
-        public override DAO<Matiere> GetMatiereDAO()
-        {
-            return new MatiereDAO();
-        }
-        public override DAO<Professeur> GetProfesseurDAO()
-        {
-            return new ProfesseurDAO();
-        }*/
     }
-
 }

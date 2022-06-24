@@ -1,40 +1,40 @@
 ﻿public class Inscription
 {
-    private int idMember { get; set; }
-    private int idRide { get; set; }
-    private int passenger { get; set; }
-    private int bikes { get; set; }
+    private Member member;
+    private Ride ride; 
+    private bool passenger; 
+    private bool bike; 
 
-    public Inscription(int idMember, int idRide, int passenger, int bikes)
+    public Inscription(Member member, Ride ride, bool passenger, bool bike)
     {
-        this.idMember = idMember;
-        this.idRide = idRide;
+        this.member = member;
+        this.ride = ride;
         this.passenger = passenger;
-        this.bikes = bikes;
+        this.bike = bike;
     }
 
-    public int IdMember
+    public Member Member
     {
-        get { return idMember; }
-        set { idMember = value; }
+        get { return member; }
+        set { member = value; }
     }
 
-    public int IdRide
+    public Ride Ride
     {
-        get { return idRide; }
-        set { idRide = value; }
+        get { return ride; }
+        set { ride = value; }
     }
 
-    public int Passenger
+    public bool Passenger
     {
         get { return passenger; }
         set { passenger = value; }
     }
 
-    public int Bikes
+    public bool Bike
     {
-        get { return bikes; }
-        set { bikes = value; }
+        get { return bike; }
+        set { bike = value; }
     }
 
 }
